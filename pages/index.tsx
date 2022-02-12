@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IconedInputContainer, SearchInput } from "../components/Input/Input";
@@ -9,7 +10,11 @@ import {
 } from "../components/styles/styledHome";
 import getAlgos from "../lib/getAlgos";
 
-const Home: NextPage = ({ algos }) => {
+interface Props {
+  algos: Array<string>;
+}
+
+const Home: NextPage<Props> = ({ algos }) => {
   const [searchText, setSearchText] = useState<string>("");
   return (
     <StyledHome>
@@ -29,7 +34,7 @@ const Home: NextPage = ({ algos }) => {
 
       <div>
         {algos.map((algo) => {
-          return algo;
+          return <Link href={`/solve/${algo}`}>{algo}</Link>;
         })}
       </div>
     </StyledHome>
