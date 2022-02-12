@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components";
+import styled  from "styled-components";
 
-interface IconButtonProps {
-  size: string;
+interface ButtonProps {
+  size?: string;
   fontSize?: string;
 }
-export const IconButon = styled.button<IconButtonProps>`
+export const IconButon = styled.button<ButtonProps>`
   ${({ size }) =>
     size &&
     `
@@ -18,4 +18,18 @@ export const IconButon = styled.button<IconButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+`;
+
+export const Button = styled.button<ButtonProps>`
+  font-size: ${(p) => p.fontSize};
+  padding: 0.6rem 0.9rem;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
 `;
