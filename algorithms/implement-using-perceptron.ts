@@ -48,7 +48,7 @@ const Solve = (
     }
     ans[j].push(...arrW, b);
   }
-  console.log(ans);
+  return ans;
 };
 export default Solve;
 
