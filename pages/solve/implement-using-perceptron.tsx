@@ -1,48 +1,60 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { IconButon } from "../../components/Button/Button";
+import Solve from "../../algorithms/implement-using-perceptron";
+import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
-import { HorizontalFlex } from "../../components/Layout/Container";
 
 const SolvePage = () => {
   const [numberOfRows, setNumberOfRows] = useState<Number>(0); //nx
+  const [numberOfInputs, setNumberOfInputs] = useState<number>(0);
   const [arrayOfInputs, setArrayOfInputs] = useState<String[]>([]);
+  const [b, setB] = useState(0);
+  const [alpha, setAlpha] = useState(1);
   useEffect(() => {
+    if (numberOfInputs === 0) return setArrayOfInputs([]);
     setArrayOfInputs(
-      Array.apply(null, Array(numberOfRows)).map(String.prototype.valueOf, "")
+      Array.apply(null, Array(Math.pow(2, numberOfInputs))).map(
+        String.prototype.valueOf,
+        ""
+      )
     );
-    console.log(arrayOfInputs);
-  }, [numberOfRows]);
+  }, [numberOfInputs]);
+
+  const handleSubmit = () => {
+    Solve(arrayOfInputs, numberOfInputs, b, alpha);
+  };
+
   return (
     <StyledSolver>
       <h1>Implement Using Perceptron</h1>
       <Input
         type="number"
-        max="12"
-        value={numberOfRows > 0 ? String(numberOfRows) : ""}
+        max="4"
+        value={numberOfInputs > 0 ? String(numberOfInputs) : ""}
         placeholder="Enter Number of Rows"
         onChange={(e) => {
           const value = parseInt(e.target.value);
-          if (value > 12) return;
-          setNumberOfRows(value ? parseInt(e.target.value) : 0);
+          if (value > 4) return;
+          setNumberOfInputs(value ? parseInt(e.target.value) : 0);
         }}
       />
       {arrayOfInputs.map((value, index) => {
         return (
           <Input
+            key={index}
             value={String(value)}
             onChange={(e) => {
               const value = e.target.value;
               const tempArr = [...arrayOfInputs];
               tempArr[index] = value;
               setArrayOfInputs(tempArr);
-              console.log(arrayOfInputs);
             }}
             type="text"
             placeholder="x1 &nbsp; x2  &nbsp;... xn  &nbsp; t"
           />
         );
       })}
+      <Button onClick={handleSubmit}>Submit</Button>
     </StyledSolver>
   );
 };
