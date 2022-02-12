@@ -1,10 +1,16 @@
-import { ReactChildren, ReactElement } from "react";
+import { ReactElement } from "react";
+import Nav from "./Nav/Nav";
 
 interface Layout {
   children: ReactElement;
 }
 const Layout: React.FC<Layout> = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <Nav />
+      {children}
+    </div>
+  );
 };
 
 export default Layout;
