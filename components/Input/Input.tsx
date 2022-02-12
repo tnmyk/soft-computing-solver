@@ -1,6 +1,7 @@
 import styled from "styled-components";
 interface Props {
   fontSize: string;
+  width?: string;
 }
 export const Input = styled.input<Props>`
   font-size: ${(p) => (p.fontSize ? p.fontSize : "1.2rem")};
@@ -10,10 +11,9 @@ export const Input = styled.input<Props>`
   border-radius: 7px;
   background: #f4f4f4;
   border: 1px solid #c8c8c8;
+  width: ${(p) => p.width};
 `;
-export const SearchInput = styled(Input)`
-  width: 30rem;
-`;
+
 
 export const IconedInputContainer = styled.div`
   position: relative;
