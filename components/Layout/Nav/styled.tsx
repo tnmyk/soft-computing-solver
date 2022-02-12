@@ -21,4 +21,12 @@ export const Logo = styled.a`
 export const Menu = styled.div`
   display: flex;
   column-gap: 3.5rem;
+  a {
+    display: flex;
+    align-items: center;
+    column-gap: 0.3rem;
+  }
+  a svg {
+    font-size: 1.3rem;
+  }
 `;
