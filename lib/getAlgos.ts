@@ -4,16 +4,6 @@ const algosData = [
     name: "Implement using perceptron",
     unit: "1",
   },
-  {
-    url: "implement-using-sss",
-    name: "Implement usingsss",
-    unit: "12",
-  },
-  {
-    url: "implement-using-sss",
-    name: "Implement usingsss12",
-    unit: "13",
-  },
 ];
 
 const getAlgos = () => {

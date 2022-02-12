@@ -8,7 +8,7 @@ const Layout: React.FC<Layout> = ({ children }) => {
   return (
     <div>
       <Nav />
-      {children}
+      <main style={{ padding: "2rem 8%" }}>{children}</main>
     </div>
   );
 };
