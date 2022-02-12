@@ -7,9 +7,10 @@ import {
   MainHeading,
   StyledHome,
 } from "../components/styles/styledHome";
+import getAlgos from "../lib/getAlgos";
 
-const Home: NextPage = () => {
-  const [searchText, setSearchText] = useState<string>("s");
+const Home: NextPage = ({ algos }) => {
+  const [searchText, setSearchText] = useState<string>("");
   return (
     <StyledHome>
       <MainHeading>Soft Computing Solver</MainHeading>
@@ -25,8 +26,23 @@ const Home: NextPage = () => {
         />
         <AiOutlineSearch />
       </IconedInputContainer>
+
+      <div>
+        {algos.map((algo) => {
+          return algo;
+        })}
+      </div>
     </StyledHome>
   );
 };
 
 export default Home;
+
+export const getStaticProps = () => {
+  const algos = getAlgos();
+  return {
+    props: {
+      algos,
+    },
+  };
+};
