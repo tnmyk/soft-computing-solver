@@ -1,10 +1,10 @@
 import styled from "styled-components";
 interface Props {
-  fontSize: string;
+  fontSize?: string;
   width?: string;
 }
 export const Input = styled.input<Props>`
-  font-size: ${(p) => (p.fontSize ? p.fontSize : "1.2rem")};
+  font-size: ${(p) => (p.fontSize ? p.fontSize : "1rem")};
   padding: 15px;
   border: none;
   box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.06);
@@ -13,7 +13,6 @@ export const Input = styled.input<Props>`
   border: 1px solid #c8c8c8;
   width: ${(p) => p.width};
 `;
-
 
 export const IconedInputContainer = styled.div`
   position: relative;
