@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
-import { Input, SearchInput } from "../components/Input/Input";
+import { useState } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import { IconedInputContainer, SearchInput } from "../components/Input/Input";
 import {
   Description,
   MainHeading,
@@ -7,15 +9,22 @@ import {
 } from "../components/styles/styledHome";
 
 const Home: NextPage = () => {
+  const [searchText, setSearchText] = useState<string>("s");
   return (
     <StyledHome>
       <MainHeading>Soft Computing Solver</MainHeading>
       <Description>Solve Soft Computing problems online </Description>
-      <SearchInput
-        type="text"
-        placeholder="Search algorithm"
-        fontSize="1.3rem"
-      ></SearchInput>
+      <IconedInputContainer style={{ margin: "1rem 0", marginTop: "4rem" }}>
+        <SearchInput
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+          type="text"
+          placeholder="Search algorithm"
+          fontSize="1.3rem"
+        />
+        <AiOutlineSearch />
+      </IconedInputContainer>
     </StyledHome>
   );
 };

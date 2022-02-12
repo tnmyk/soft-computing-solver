@@ -11,8 +11,21 @@ export const Input = styled.input<Props>`
   background: #f4f4f4;
   border: 1px solid #c8c8c8;
 `;
-
 export const SearchInput = styled(Input)`
   width: 30rem;
-  margin-top: 7rem;
+`;
+
+export const IconedInputContainer = styled.div`
+  position: relative;
+  input {
+    padding-left: 3rem;
+  }
+  svg {
+    position: absolute;
+    left: 0.8rem;
+    font-size: 1.6rem;
+    color: #969696;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
