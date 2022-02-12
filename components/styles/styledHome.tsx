@@ -15,3 +15,11 @@ export const Description = styled.p`
   font-size: 1.3rem;
   margin-top: 0.5rem;
 `;
+
+export const StyledLink = styled.a`
+  color: #048aff;
+  font-size: 1.3rem;
+  display: inline-flex;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+`;

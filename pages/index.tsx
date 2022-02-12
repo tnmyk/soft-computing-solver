@@ -7,11 +7,16 @@ import {
   Description,
   MainHeading,
   StyledHome,
+  StyledLink,
 } from "../components/styles/styledHome";
 import getAlgos from "../lib/getAlgos";
 
 interface Props {
-  algos: Array<string>;
+  algos: Array<{
+    name: string;
+    url: string;
+    unit: string;
+  }>;
 }
 
 const Home: NextPage<Props> = ({ algos }) => {
@@ -33,9 +38,17 @@ const Home: NextPage<Props> = ({ algos }) => {
       </IconedInputContainer>
 
       <div>
-        {algos.map((algo) => {
-          return <Link href={`/solve/${algo}`}>{algo}</Link>;
-        })}
+        {algos
+          .filter((algo) => algo.name.includes(searchText))
+          .map((algo) => {
+            return (
+              <div>
+                <Link href={`/solve/${algo.url}`}>
+                  <StyledLink>{algo.name}</StyledLink>
+                </Link>
+              </div>
+            );
+          })}
       </div>
     </StyledHome>
   );
