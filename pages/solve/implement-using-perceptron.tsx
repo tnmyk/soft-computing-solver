@@ -57,17 +57,39 @@ const SolvePage = () => {
         );
       })}
       <Button onClick={handleSubmit}>Submit</Button>
-
-      {ans &&
-        ans.map((row) => {
-          return (
-            <div style={{ display: "flex", columnGap: "1rem" }}>
-              {row.map((ele) => {
-                return <span>{ele}</span>;
-              })}
-            </div>
-          );
-        })}
+      <Table>
+        <tr>
+          <th>x1</th>
+          <th>x2</th>
+          <th>1</th>
+          <th>t</th>
+          <th>Yin</th>
+          <th>Y</th>
+          <th>Delta W1</th>
+          <th>Delta W2</th>
+          <th>Delta B</th>
+          <th>w1</th>
+          <th>w2</th>
+          <th>b</th>
+        </tr>
+        {ans &&
+          ans.map((row, idx) => {
+            return (
+              <>
+                {idx % Math.pow(2, numberOfInputs) === 0 && (
+                  <>
+                    EPOCH - {Math.round(idx / Math.pow(2, numberOfInputs)) + 1}
+                  </>
+                )}
+                <tr>
+                  {row.map((ele) => {
+                    return <td>{ele}</td>;
+                  })}
+                </tr>
+              </>
+            );
+          })}
+      </Table>
     </StyledSolver>
   );
 };
@@ -78,4 +100,11 @@ const StyledSolver = styled.div`
   flex-direction: column;
   align-items: center;
   row-gap: 1rem;
+`;
+
+const Table = styled.table`
+  th,
+  td {
+    padding: 15px;
+  }
 `;
