@@ -42,9 +42,9 @@ const Home: NextPage<Props> = ({ algos }) => {
       <div>
         {algos
           .filter((algo) => algo.name.includes(searchText))
-          .map((algo) => {
+          .map((algo, idx) => {
             return (
-              <div>
+              <div key={idx}>
                 <Link href={`/solve/${algo.url}`}>
                   <StyledLink>
                     {algo.id}. {algo.name}
