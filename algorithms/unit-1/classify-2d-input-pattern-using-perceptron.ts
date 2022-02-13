@@ -5,7 +5,7 @@ const Solve = (
   alpha: number
 ) => {
   let b = 0;
-
+  const ans = [];
   const arrX: Array<Array<number>> = [];
   const arrT: Array<number> = [];
   let arrW = Array.apply(null, Array(numberOfXInputs)).map(function () {
@@ -30,8 +30,9 @@ const Solve = (
     } else {
       console.log("Y == t");
     }
-    console.log("W:", arrW);
+    ans.push(arrW);
   }
+  return ans;
 };
 
 export default Solve;
