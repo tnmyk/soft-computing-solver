@@ -41,6 +41,7 @@ const SolvePage = () => {
       {arrayOfInputs.map((value, index) => {
         return (
           <Input
+            key={index}
             width="25rem"
             placeholder={
               Array(numberOfInputs)
