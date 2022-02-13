@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import Solve from "../../../algorithms/unit-1/classify-2d-input-pattern-using-perceptron";
+import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
 import { StyledSolver } from "../../../components/styles/styledSolver";
 
 const SolvePage = () => {
   const [numberOfPatterns, setNumberOfPatterns] = useState<number>(0);
-  const [numberOfInputs, setNumberOfInputs] = useState<number>(0);
+  const [numberOfXInputs, setNumberOfXInputs] = useState<number>(0);
   const [arrayOfInputs, setArrayOfInputs] = useState<string[]>([]);
   useEffect(() => {
     if (numberOfPatterns === 0) {
@@ -17,6 +19,10 @@ const SolvePage = () => {
       )
     );
   }, [numberOfPatterns]);
+
+  const handleSubmit = () => {
+    Solve(arrayOfInputs, numberOfPatterns, numberOfXInputs);
+  };
   return (
     <StyledSolver>
       <h1>Classify 2D input-pattern using Perceptron</h1>
@@ -34,8 +40,8 @@ const SolvePage = () => {
         placeholder="Enter number of inputs(x)"
         onChange={(e) => {
           const value = parseInt(e.target.value);
-          if (!value || value > 20) return setNumberOfInputs(0);
-          setNumberOfInputs(value);
+          if (!value || value > 20) return setNumberOfXInputs(0);
+          setNumberOfXInputs(value);
         }}
       />
       {arrayOfInputs.map((value, index) => {
@@ -44,7 +50,7 @@ const SolvePage = () => {
             key={index}
             width="25rem"
             placeholder={
-              Array(numberOfInputs)
+              Array(numberOfXInputs)
                 .fill(0)
                 .map((_, idx) => "x" + (idx + 1))
                 .join("   ") + "   1   t (space-separated)"
@@ -57,6 +63,7 @@ const SolvePage = () => {
           />
         );
       })}
+      <Button onClick={handleSubmit}>Submit</Button>
     </StyledSolver>
   );
 };
