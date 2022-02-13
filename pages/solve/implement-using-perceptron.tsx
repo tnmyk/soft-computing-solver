@@ -69,8 +69,9 @@ const SolvePage = () => {
               tempArr[index] = value;
               setArrayOfInputs(tempArr);
             }}
+            width='20rem'
             type="text"
-            placeholder="x1 &nbsp; x2  &nbsp;... xn  &nbsp; t"
+            placeholder="x1 &nbsp; x2 &nbsp;.. xn &nbsp;t (space-separated)"
           />
         );
       })}
