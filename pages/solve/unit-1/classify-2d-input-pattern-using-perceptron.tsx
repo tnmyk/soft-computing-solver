@@ -8,7 +8,7 @@ const SolvePage = () => {
   const [numberOfPatterns, setNumberOfPatterns] = useState<number>(0);
   const [numberOfXInputs, setNumberOfXInputs] = useState<number>(0);
   const [arrayOfInputs, setArrayOfInputs] = useState<string[]>([]);
-  const [alpha, setAlpha] = useState<number>(0);
+  const [alpha, setAlpha] = useState<number>(1);
   useEffect(() => {
     if (numberOfPatterns === 0) {
       return setArrayOfInputs([]);
