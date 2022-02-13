@@ -23,6 +23,33 @@ interface Props {
 
 const Home: NextPage<Props> = ({ algos }) => {
   const [searchText, setSearchText] = useState<string>("");
+
+  const search = () => {
+    const filtered = algos.filter((algo) =>
+      algo.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+
+    if (filtered.length === 0)
+      return (
+        <h3 style={{ margin: "4rem auto" }}>No Algorithm found currently</h3>
+      );
+
+    return (
+      <AlgosContainer>
+        {filtered.map((algo, idx) => {
+          return (
+            <div key={idx}>
+              <Link href={`/solve/${algo.url}`}>
+                <StyledLink>
+                  {algo.id}. {algo.name}
+                </StyledLink>
+              </Link>
+            </div>
+          );
+        })}
+      </AlgosContainer>
+    );
+  };
   return (
     <StyledHome>
       <MainHeading>Soft Computing Solver</MainHeading>
@@ -40,21 +67,7 @@ const Home: NextPage<Props> = ({ algos }) => {
         <AiOutlineSearch />
       </IconedInputContainer>
 
-      <AlgosContainer>
-        {algos
-          .filter((algo) => algo.name.includes(searchText))
-          .map((algo, idx) => {
-            return (
-              <div key={idx}>
-                <Link href={`/solve/${algo.url}`}>
-                  <StyledLink>
-                    {algo.id}. {algo.name}
-                  </StyledLink>
-                </Link>
-              </div>
-            );
-          })}
-      </AlgosContainer>
+      {search()}
     </StyledHome>
   );
 };
