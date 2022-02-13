@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Solve from "../../../algorithms/unit-1/implement-table-using-perceptron";
 import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
-import { StyledSolver } from "../../../components/styles/styledSolver";
+import { StyledSolver, Table } from "../../../components/styles/styledSolver";
 
 const SolvePage = () => {
   const [numberOfInputs, setNumberOfInputs] = useState<number>(0);
@@ -131,18 +131,3 @@ const SolvePage = () => {
   );
 };
 export default SolvePage;
-
-const Table = styled.table`
-  th,
-  td {
-    padding: 15px;
-    border-width: 0;
-    /* border: 1px solid #555555; */
-  }
-  th {
-    background-color: #aaaaff;
-  }
-  td {
-    background-color: #c7c7ff;
-  }
-`;
