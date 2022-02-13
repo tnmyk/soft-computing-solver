@@ -5,7 +5,6 @@ import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
 
 const SolvePage = () => {
-  const [numberOfRows, setNumberOfRows] = useState<Number>(0); //nx
   const [numberOfInputs, setNumberOfInputs] = useState<number>(0);
   const [arrayOfInputs, setArrayOfInputs] = useState<String[]>([]);
   const [b, setB] = useState(0);
@@ -40,6 +39,21 @@ const SolvePage = () => {
           setNumberOfInputs(value ? parseInt(e.target.value) : 0);
         }}
       />
+      <Input
+        placeholder="Enter Alpha (default: 1)"
+        type="number"
+        onChange={(e) => {
+          setAlpha(parseInt(e.target.value));
+        }}
+      />
+      <Input
+        placeholder="Enter Initial B (default: 0)"
+        type="number"
+        onChange={(e) => {
+          setAlpha(parseInt(e.target.value));
+        }}
+      />
+
       {arrayOfInputs.map((value, index) => {
         return (
           <Input
