@@ -14,6 +14,9 @@ const Solve = (
   );
   arrayOfInputs.forEach((input) => {
     const temp: Array<number> = input.split(" ").map((x) => Number(x));
+    if (temp.length !== numberOfInputs + 1) {
+      throw new Error("Incomplete inputs");
+    }
     arrX.push(temp.slice(0, -1));
     arrT.push(temp.at(-1)!);
   });

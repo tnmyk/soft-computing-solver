@@ -21,8 +21,12 @@ const SolvePage = () => {
   }, [numberOfInputs]);
 
   const handleSubmit = () => {
-    const ansArray = Solve(arrayOfInputs, numberOfInputs, b, alpha);
-    setAns(ansArray);
+    try {
+      const ansArray = Solve(arrayOfInputs, numberOfInputs, b, alpha);
+      setAns(ansArray);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
