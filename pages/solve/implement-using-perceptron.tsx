@@ -69,7 +69,7 @@ const SolvePage = () => {
               tempArr[index] = value;
               setArrayOfInputs(tempArr);
             }}
-            width='20rem'
+            width="20rem"
             type="text"
             placeholder="x1 &nbsp; x2 &nbsp;.. xn &nbsp;t (space-separated)"
           />
@@ -125,8 +125,19 @@ const StyledSolver = styled.div`
 `;
 
 const Table = styled.table`
+  & {
+    /* border-collapse: collapse; */
+  }
   th,
   td {
     padding: 15px;
+    border-width: 0;
+    /* border: 1px solid #555555; */
+  }
+  th {
+    background-color: #aaaaff;
+  }
+  td {
+    background-color: #c7c7ff;
   }
 `;

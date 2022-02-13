@@ -16,6 +16,7 @@ export const StyledNav = styled.nav`
 export const Logo = styled.a`
   font-weight: 600;
   font-size: 1.4rem;
+  cursor: pointer;
 `;
 
 export const Menu = styled.div`
