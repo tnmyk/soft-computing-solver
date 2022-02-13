@@ -8,6 +8,7 @@ const SolvePage = () => {
   const [numberOfPatterns, setNumberOfPatterns] = useState<number>(0);
   const [numberOfXInputs, setNumberOfXInputs] = useState<number>(0);
   const [arrayOfInputs, setArrayOfInputs] = useState<string[]>([]);
+  const [alpha, setAlpha] = useState<number>(0);
   useEffect(() => {
     if (numberOfPatterns === 0) {
       return setArrayOfInputs([]);
@@ -21,7 +22,11 @@ const SolvePage = () => {
   }, [numberOfPatterns]);
 
   const handleSubmit = () => {
-    Solve(arrayOfInputs, numberOfPatterns, numberOfXInputs);
+    try {
+      Solve(arrayOfInputs, numberOfPatterns, numberOfXInputs, alpha);
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <StyledSolver>
