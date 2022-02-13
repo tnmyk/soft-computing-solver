@@ -16,6 +16,7 @@ interface Props {
     name: string;
     url: string;
     unit: string;
+    id: number;
   }>;
 }
 
@@ -45,7 +46,9 @@ const Home: NextPage<Props> = ({ algos }) => {
             return (
               <div>
                 <Link href={`/solve/${algo.url}`}>
-                  <StyledLink>{algo.name}</StyledLink>
+                  <StyledLink>
+                    {algo.id}. {algo.name}
+                  </StyledLink>
                 </Link>
               </div>
             );
