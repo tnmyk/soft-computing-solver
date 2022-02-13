@@ -1,7 +1,7 @@
 const algosData = [
   {
-    url: "implement-using-perceptron",
-    name: "Implement using perceptron",
+    url: "implement-table-using-perceptron",
+    name: "Implement table using perceptron",
     unit: "1",
     id: 1,
   },

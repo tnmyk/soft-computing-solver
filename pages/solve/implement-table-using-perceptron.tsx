@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
-import Solve from "../../algorithms/implement-using-perceptron";
+import Solve from "../../algorithms/implement-table-using-perceptron";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
 
@@ -38,7 +38,7 @@ const SolvePage = () => {
 
   return (
     <StyledSolver>
-      <h1>Implement Using Perceptron</h1>
+      <h1>Implement Table Using Perceptron</h1>
       <Input
         type="number"
         max="4"
@@ -131,7 +131,7 @@ const SolvePage = () => {
 };
 export default SolvePage;
 
-const StyledSolver = styled.div`
+export const StyledSolver = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
