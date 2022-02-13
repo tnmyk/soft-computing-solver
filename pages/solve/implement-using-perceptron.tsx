@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
 import Solve from "../../algorithms/implement-using-perceptron";
 import { Button } from "../../components/Button/Button";
@@ -54,7 +54,7 @@ const SolvePage = () => {
         placeholder="Enter Initial B (default: 0)"
         type="number"
         onChange={(e) => {
-          setAlpha(parseInt(e.target.value));
+          setB(parseInt(e.target.value));
         }}
       />
 
@@ -76,37 +76,40 @@ const SolvePage = () => {
       })}
       <Button onClick={handleSubmit}>Submit</Button>
       <Table>
-        <tr>
-          <th>x1</th>
-          <th>x2</th>
-          <th>1</th>
-          <th>t</th>
-          <th>Yin</th>
-          <th>Y</th>
-          <th>Delta W1</th>
-          <th>Delta W2</th>
-          <th>Delta B</th>
-          <th>w1</th>
-          <th>w2</th>
-          <th>b</th>
-        </tr>
-        {ans &&
-          ans.map((row: number[], idx: number) => {
-            return (
-              <>
-                {idx % Math.pow(2, numberOfInputs) === 0 && (
-                  <>
-                    EPOCH - {Math.round(idx / Math.pow(2, numberOfInputs)) + 1}
-                  </>
-                )}
-                <tr>
-                  {row.map((ele) => {
-                    return <td>{ele}</td>;
-                  })}
-                </tr>
-              </>
-            );
-          })}
+        <tbody>
+          <tr>
+            <th>x1</th>
+            <th>x2</th>
+            <th>1</th>
+            <th>t</th>
+            <th>Yin</th>
+            <th>Y</th>
+            <th>Delta W1</th>
+            <th>Delta W2</th>
+            <th>Delta B</th>
+            <th>w1</th>
+            <th>w2</th>
+            <th>b</th>
+          </tr>
+          {ans &&
+            ans.map((row: number[], idx: number) => {
+              return (
+                <Fragment key={idx}>
+                  {idx % Math.pow(2, numberOfInputs) === 0 && (
+                    <>
+                      EPOCH -{" "}
+                      {Math.round(idx / Math.pow(2, numberOfInputs)) + 1}
+                    </>
+                  )}
+                  <tr>
+                    {row.map((ele, idx) => {
+                      return <td key={idx}>{ele}</td>;
+                    })}
+                  </tr>
+                </Fragment>
+              );
+            })}
+        </tbody>
       </Table>
     </StyledSolver>
   );
