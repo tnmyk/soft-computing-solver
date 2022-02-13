@@ -48,6 +48,11 @@ const SolvePage = () => {
                 .map((_, idx) => "x" + (idx + 1))
                 .join("   ") + "   1   t (space-separated)"
             }
+            onChange={(e) => {
+              const tempArr = [...arrayOfInputs];
+              tempArr[index] = e.target.value;
+              setArrayOfInputs(tempArr);
+            }}
           />
         );
       })}
