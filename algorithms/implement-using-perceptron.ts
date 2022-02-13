@@ -2,7 +2,8 @@ const Solve = (
   arrayOfInputs: String[],
   numberOfInputs: number,
   b: number,
-  alpha: number
+  alpha: number,
+  numberOfIterations: number
 ) => {
   const arrX: Array<Array<number>> = [];
   const arrT: Array<number> = [];
@@ -20,7 +21,7 @@ const Solve = (
     arrX.push(temp.slice(0, -1));
     arrT.push(temp.at(-1)!);
   });
-  for (let j: number = 0; j < 10; ++j) {
+  for (let j: number = 0; j < numberOfIterations; ++j) {
     const idx = j % Math.pow(2, numberOfInputs);
     const X = arrX[idx];
     const yin = getYin(X, b, arrW);

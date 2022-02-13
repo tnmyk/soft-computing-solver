@@ -7,6 +7,7 @@ import { Input } from "../../components/Input/Input";
 const SolvePage = () => {
   const [numberOfInputs, setNumberOfInputs] = useState<number>(0);
   const [arrayOfInputs, setArrayOfInputs] = useState<String[]>([]);
+  const [numberOfIterations, setNumberOfIterations] = useState<number>(8);
   const [b, setB] = useState(0);
   const [alpha, setAlpha] = useState(1);
   const [ans, setAns] = useState<any>();
@@ -22,7 +23,13 @@ const SolvePage = () => {
 
   const handleSubmit = () => {
     try {
-      const ansArray = Solve(arrayOfInputs, numberOfInputs, b, alpha);
+      const ansArray = Solve(
+        arrayOfInputs,
+        numberOfInputs,
+        b,
+        alpha,
+        numberOfIterations
+      );
       setAns(ansArray);
     } catch (err) {
       console.log(err);
@@ -55,6 +62,13 @@ const SolvePage = () => {
         type="number"
         onChange={(e) => {
           setB(parseInt(e.target.value));
+        }}
+      />
+      <Input
+        placeholder="Enter Number of iterations"
+        type="number"
+        onChange={(e) => {
+          setNumberOfIterations(parseInt(e.target.value));
         }}
       />
 
@@ -125,9 +139,6 @@ const StyledSolver = styled.div`
 `;
 
 const Table = styled.table`
-  & {
-    /* border-collapse: collapse; */
-  }
   th,
   td {
     padding: 15px;
