@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IconedInputContainer, Input } from "../components/Input/Input";
 import {
+  AlgosContainer,
   Description,
   MainHeading,
   StyledHome,
@@ -39,7 +40,7 @@ const Home: NextPage<Props> = ({ algos }) => {
         <AiOutlineSearch />
       </IconedInputContainer>
 
-      <div>
+      <AlgosContainer>
         {algos
           .filter((algo) => algo.name.includes(searchText))
           .map((algo, idx) => {
@@ -53,7 +54,7 @@ const Home: NextPage<Props> = ({ algos }) => {
               </div>
             );
           })}
-      </div>
+      </AlgosContainer>
     </StyledHome>
   );
 };

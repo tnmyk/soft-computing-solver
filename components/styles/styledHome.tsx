@@ -23,3 +23,8 @@ export const StyledLink = styled.a`
   margin-bottom: 0.4rem;
   cursor: pointer;
 `;
+
+export const AlgosContainer = styled.div`
+  width: 60%;
+  margin-top: 3rem;
+`;
