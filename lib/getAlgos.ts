@@ -1,9 +1,15 @@
 const algosData = [
   {
     url: "implement-table-using-perceptron",
-    name: "Implement table using perceptron",
+    name: "Implement table using Perceptron",
     unit: "1",
     id: 1,
+  },
+  {
+    url: "classify-2d-input-pattern-using-perceptron",
+    name: "Classify 2D input-pattern using Perceptron",
+    unit: "1",
+    id: 2,
   },
 ];
 

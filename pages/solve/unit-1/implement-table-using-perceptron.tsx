@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
-import Solve from "../../algorithms/implement-table-using-perceptron";
-import { Button } from "../../components/Button/Button";
-import { Input } from "../../components/Input/Input";
+import Solve from "../../../algorithms/unit-1/implement-table-using-perceptron";
+import { Button } from "../../../components/Button/Button";
+import { Input } from "../../../components/Input/Input";
+import { StyledSolver } from "../../../components/styles/styledSolver";
 
 const SolvePage = () => {
   const [numberOfInputs, setNumberOfInputs] = useState<number>(0);
@@ -130,13 +131,6 @@ const SolvePage = () => {
   );
 };
 export default SolvePage;
-
-export const StyledSolver = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 1rem;
-`;
 
 const Table = styled.table`
   th,

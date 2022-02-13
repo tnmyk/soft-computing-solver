@@ -39,7 +39,7 @@ const Home: NextPage<Props> = ({ algos }) => {
         {filtered.map((algo, idx) => {
           return (
             <div key={idx}>
-              <Link href={`/solve/${algo.url}`}>
+              <Link href={`/solve/unit-${algo.unit}/${algo.url}`}>
                 <StyledLink>
                   {algo.id}. {algo.name}
                 </StyledLink>
