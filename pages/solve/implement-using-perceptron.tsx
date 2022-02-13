@@ -73,7 +73,7 @@ const SolvePage = () => {
           <th>b</th>
         </tr>
         {ans &&
-          ans.map((row, idx) => {
+          ans.map((row: number[], idx: number) => {
             return (
               <>
                 {idx % Math.pow(2, numberOfInputs) === 0 && (
