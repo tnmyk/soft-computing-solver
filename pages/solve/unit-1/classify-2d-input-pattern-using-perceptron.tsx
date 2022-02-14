@@ -90,7 +90,18 @@ const SolvePage = () => {
       <Button onClick={handleSubmit}>Submit</Button>
       {table && (
         <>
+          <Steps>
+            {steps?.map((step, stepno) => {
+              return (
+                <div
+                  key={`step-${stepno}`}
+                  dangerouslySetInnerHTML={{ __html: step }}
+                />
+              );
+            })}
+          </Steps>
           <Table>
+          <caption>Weights after each step</caption>
             <tbody>
               <tr>
                 <td />
@@ -114,11 +125,7 @@ const SolvePage = () => {
               })}
             </tbody>
           </Table>
-          <Steps>
-            {steps?.map((step, stepno) => {
-              return <div dangerouslySetInnerHTML={{ __html: step }} />;
-            })}
-          </Steps>
+          <u>Also draw diagram</u>
         </>
       )}
     </StyledSolver>
@@ -134,4 +141,6 @@ const Col = styled.col`
 const Steps = styled.div`
   white-space: pre-line;
   width: 80%;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 `;
