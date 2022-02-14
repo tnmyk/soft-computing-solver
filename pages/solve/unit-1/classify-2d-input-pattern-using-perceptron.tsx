@@ -58,6 +58,15 @@ const SolvePage = () => {
           setNumberOfXInputs(value);
         }}
       />
+      <Input
+        type="number"
+        placeholder="Enter alpha (default 1)"
+        onChange={(e) => {
+          const value = parseInt(e.target.value);
+          if (!value) return setAlpha(1);
+          setAlpha(value);
+        }}
+      />
       {arrayOfInputs.map((value, index) => {
         return (
           <Input
