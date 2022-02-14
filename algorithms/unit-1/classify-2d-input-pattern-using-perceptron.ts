@@ -5,7 +5,7 @@ const Solve = (
   alpha: number
 ) => {
   let b = 0;
-  const ans = [];
+  const table = [];
   const arrX: Array<Array<number>> = [];
   const arrT: Array<number> = [];
   let arrW = Array.apply(null, Array(numberOfXInputs)).map(function () {
@@ -20,19 +20,46 @@ const Solve = (
     arrX.push(tempArr.slice(0, -2));
     arrT.push(tempArr.at(-1)!);
   });
+  const steps: Array<string> = [];
 
   for (let i = 0; i < numberOfPatterns; ++i) {
-    if (getY(getYin(arrX[i], b, arrW)) != arrT[i]) {
+    const yin = getYin(arrX[i], b, arrW);
+    const y = getY(yin);
+    steps.push(`<h2><u>Step - ${i + 1}</u></h2>\n`);
+    steps[i] += `For input sample ${i + 1}, x = [${arrX[i].join(" ")}], t = ${
+      arrT[i]
+    }, net input is calculated as\nyin ${getYinSteps(
+      arrX[i],
+      b,
+      arrW
+    )} yin = ${yin} \n
+      Using activation function, y = f(yin) = ${y} \n\n`;
+    if (y != arrT[i]) {
+      steps[
+        i
+      ] += `Now since t != y, the new weights are computed as \n wi(new) = wi(old) + αt(xi)\n`;
       arrW = arrW.map((w, idx) => {
-        return w + alpha * arrT[i] * arrX[i][idx];
+        const newWeight = w + alpha * arrT[i] * arrX[i][idx];
+        steps[i] += `w${idx + 1} (new) = w${idx + 1} (old) + αtx${
+          idx + 1
+        } = ${w} + (${alpha})(${arrT[i]})(${arrX[i][idx]}) = ${newWeight}\n`;
+        return newWeight;
       });
+      const oldb = b;
       b += alpha * arrT[i];
+      steps[
+        i
+      ] += `b(new) = b(old) + αt = ${oldb} + (${alpha})(${arrT[i]}) = ${b} \n\n`;
+      steps[i] += `The weights after presenting input sample - ${
+        i + 1
+      } are \n w= [${arrW.join(" ")}]\n\n`;
     } else {
-      console.log("Y == t");
+      steps[i] += `For input sample - ${i + 1} t == Y`;
+      break;
     }
-    ans.push([...arrW, b]);
+    table.push([...arrW, b]);
   }
-  return ans;
+  return { table, steps };
 };
 
 export default Solve;
@@ -53,4 +80,17 @@ const getYin = (X: number[], b: number, arrW: number[]) => {
       return prev + current * arrW[index];
     }, 0)
   );
+};
+
+const getYinSteps = (X: number[], b: number, arrW: number[]) => {
+  let step = `= b `;
+  for (let i = 1; i <= X.length; ++i) {
+    step += `+ x${i}*w${i} `;
+  }
+  step += `\n = ${b}`;
+  for (let i = 0; i < X.length; ++i) {
+    step += `+ (${X[i]})*(${arrW[i]})`;
+  }
+  step += "\n";
+  return step;
 };
