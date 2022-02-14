@@ -10,7 +10,8 @@ const SolvePage = () => {
   const [numberOfXInputs, setNumberOfXInputs] = useState<number>(0);
   const [arrayOfInputs, setArrayOfInputs] = useState<string[]>([]);
   const [alpha, setAlpha] = useState<number>(1);
-  const [ans, setAns] = useState<Array<Array<number>>>();
+  const [table, setTable] = useState<Array<Array<number>>>();
+  const [steps, setSteps] = useState<string[]>();
   useEffect(() => {
     if (numberOfPatterns === 0) {
       return setArrayOfInputs([]);
@@ -31,8 +32,8 @@ const SolvePage = () => {
         numberOfXInputs,
         alpha
       );
-      console.log(solved);
-      setAns(solved);
+      setTable(solved.table);
+      setSteps(solved.steps);
     } catch (e) {
       console.log(e);
     }
@@ -87,31 +88,38 @@ const SolvePage = () => {
         );
       })}
       <Button onClick={handleSubmit}>Submit</Button>
-      {ans && (
-        <Table>
-          <tbody>
-            <tr>
-              <td />
-              {Array(ans[0].length - 1)
-                .fill(0)
-                .map((_x, idx) => {
-                  return <th key={`headings-${idx}`}>x{idx + 1}</th>;
-                })}
-              <th>b</th>
-            </tr>
-
-            {ans!.map((row, idx) => {
-              return (
-                <tr key={`row-${idx}`}>
-                  <td>Iteration - {idx + 1}</td>
-                  {row.map((w, idx2) => {
-                    return <td key={`row-${idx}-col-${idx2}`}>{w}</td>;
+      {table && (
+        <>
+          <Table>
+            <tbody>
+              <tr>
+                <td />
+                {Array(table[0].length - 1)
+                  .fill(0)
+                  .map((_x, idx) => {
+                    return <th key={`headings-${idx}`}>x{idx + 1}</th>;
                   })}
-                </tr>
-              );
+                <th>b</th>
+              </tr>
+
+              {table!.map((row, idx) => {
+                return (
+                  <tr key={`row-${idx}`}>
+                    <td>Iteration - {idx + 1}</td>
+                    {row.map((w, idx2) => {
+                      return <td key={`row-${idx}-col-${idx2}`}>{w}</td>;
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          <Steps>
+            {steps?.map((step, stepno) => {
+              return <div dangerouslySetInnerHTML={{ __html: step }} />;
             })}
-          </tbody>
-        </Table>
+          </Steps>
+        </>
       )}
     </StyledSolver>
   );
@@ -121,4 +129,9 @@ export default SolvePage;
 
 const Col = styled.col`
   background-color: red !important;
+`;
+
+const Steps = styled.div`
+  white-space: pre-line;
+  width: 80%;
 `;
