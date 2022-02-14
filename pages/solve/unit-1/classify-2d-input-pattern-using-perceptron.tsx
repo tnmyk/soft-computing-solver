@@ -86,17 +86,17 @@ const SolvePage = () => {
               {Array(ans[0].length - 1)
                 .fill(0)
                 .map((_x, idx) => {
-                  return <th>x{idx + 1}</th>;
+                  return <th key={`headings-${idx}`}>x{idx + 1}</th>;
                 })}
               <th>b</th>
             </tr>
 
             {ans!.map((row, idx) => {
               return (
-                <tr>
+                <tr key={`row-${idx}`}>
                   <td>Iteration - {idx + 1}</td>
-                  {row.map((w) => {
-                    return <td>{w}</td>;
+                  {row.map((w, idx2) => {
+                    return <td key={`row-${idx}-col-${idx2}`}>{w}</td>;
                   })}
                 </tr>
               );
