@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import Solve from "../../../algorithms/unit-1/classify-2d-input-pattern-using-perceptron";
 import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
-import { StyledSolver } from "../../../components/styles/styledSolver";
+import { StyledSolver, Table } from "../../../components/styles/styledSolver";
 
 const SolvePage = () => {
   const [numberOfPatterns, setNumberOfPatterns] = useState<number>(0);
@@ -77,19 +78,38 @@ const SolvePage = () => {
         );
       })}
       <Button onClick={handleSubmit}>Submit</Button>
+      {ans && (
+        <Table>
+          <tbody>
+            <tr>
+              <td />
+              {Array(ans[0].length - 1)
+                .fill(0)
+                .map((_x, idx) => {
+                  return <th>x{idx + 1}</th>;
+                })}
+              <th>b</th>
+            </tr>
 
-      {ans &&
-        ans!.map((row) => {
-          return (
-            <div>
-              {row.map((w) => {
-                return w;
-              })}
-            </div>
-          );
-        })}
+            {ans!.map((row, idx) => {
+              return (
+                <tr>
+                  <td>Iteration - {idx + 1}</td>
+                  {row.map((w) => {
+                    return <td>{w}</td>;
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      )}
     </StyledSolver>
   );
 };
 
 export default SolvePage;
+
+const Col = styled.col`
+  background-color: red !important;
+`;

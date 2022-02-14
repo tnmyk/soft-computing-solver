@@ -30,7 +30,7 @@ const Solve = (
     } else {
       console.log("Y == t");
     }
-    ans.push(arrW);
+    ans.push([...arrW, b]);
   }
   return ans;
 };
