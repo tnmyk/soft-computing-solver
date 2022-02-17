@@ -23,7 +23,9 @@ export const Table = styled.table`
 `;
 
 export const Matrix = styled.div`
-  display: flex;
+  display: inline-flex;
+  vertical-align: middle;
+  margin: 0 0.5rem;
   padding: 0.5rem;
   flex-direction: column;
   row-gap: 1rem;

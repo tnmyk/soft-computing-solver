@@ -159,7 +159,25 @@ const SolvePage = () => {
         V =
         <Matrix>
           {V.map((v) => {
-            return v;
+            return (
+              <div>
+                {v.split(" ").map((_) => (
+                  <span>{_}</span>
+                ))}
+              </div>
+            );
+          })}
+        </Matrix>{" "}
+        W ={" "}
+        <Matrix>
+          {W.map((w) => {
+            return (
+              <div>
+                {w.split(" ").map((_) => (
+                  <span>{_}</span>
+                ))}
+              </div>
+            );
           })}
         </Matrix>
       </div>
