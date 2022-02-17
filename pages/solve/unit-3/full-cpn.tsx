@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import solve from "../../../algorithms/unit-3/full-cpn";
 import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
 import { StyledSolver } from "../../../components/styles/styledSolver";
@@ -11,6 +12,11 @@ const SolvePage = () => {
   const [W, setW] = useState<string[]>([]);
   const [xInput, setXInput] = useState<string>("");
   const [yInput, setYInput] = useState<string>("");
+
+  // change to hooks
+  const alpha = 0.2;
+  const beta = 0.2;
+  //
   useEffect(() => {
     setV(Array(numberOfX).fill(""));
   }, [numberOfX]);
@@ -18,7 +24,10 @@ const SolvePage = () => {
     setW(Array(numberOfY).fill(""));
   }, [numberOfY]);
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    const ans = solve(V, W, xInput, yInput, alpha, beta);
+    console.log(ans)
+  };
   return (
     <StyledSolver>
       <h1>Full CPN solver</h1>
