@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import solve from "../../../algorithms/unit-3/full-cpn";
 import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
-import { StyledSolver } from "../../../components/styles/styledSolver";
+import { StyledSolver, Matrix } from "../../../components/styles/styledSolver";
 
 const SolvePage = () => {
   const [numberOfX, setNumberOfX] = useState(0);
@@ -35,7 +35,7 @@ const SolvePage = () => {
         value={numberOfX > 0 ? numberOfX : ""}
         onChange={(e) => {
           const value = parseInt(e.target.value);
-          if (!value || value > 10) setNumberOfX(0);
+          if (!value || value > 10 || value < 0) setNumberOfX(0);
           else setNumberOfX(value);
         }}
       />
@@ -45,7 +45,7 @@ const SolvePage = () => {
         value={numberOfZ > 0 ? numberOfZ : ""}
         onChange={(e) => {
           const value = parseInt(e.target.value);
-          if (!value || value > 10) setNumberOfZ(0);
+          if (!value || value > 10 || value < 0) setNumberOfZ(0);
           else setNumberOfZ(value);
         }}
       />
@@ -55,7 +55,7 @@ const SolvePage = () => {
         value={numberOfY > 0 ? numberOfY : ""}
         onChange={(e) => {
           const value = parseInt(e.target.value);
-          if (!value || value > 10) setNumberOfY(0);
+          if (!value || value > 10 || value < 0) setNumberOfY(0);
           else setNumberOfY(value);
         }}
       />
@@ -65,7 +65,7 @@ const SolvePage = () => {
         value={alpha > 0 ? alpha : ""}
         onChange={(e) => {
           const value = Number(e.target.value);
-          if (!value || value > 1) setAlpha(0);
+          if (!value || value > 1 || value < 0) setAlpha(0);
           else setAlpha(value);
         }}
       />
@@ -75,7 +75,7 @@ const SolvePage = () => {
         value={beta > 0 ? beta : ""}
         onChange={(e) => {
           const value = Number(e.target.value);
-          if (!value || value > 1) setBeta(0);
+          if (!value || value > 1 || value < 0) setBeta(0);
           else setBeta(value);
         }}
       />
@@ -154,6 +154,15 @@ const SolvePage = () => {
         </>
       )}
       <Button onClick={handleSubmit}>Submit</Button>
+
+      <div>
+        V =
+        <Matrix>
+          {V.map((v) => {
+            return v;
+          })}
+        </Matrix>
+      </div>
     </StyledSolver>
   );
 };
