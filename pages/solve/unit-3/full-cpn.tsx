@@ -82,6 +82,7 @@ const SolvePage = () => {
           {V.map((_, xIndex) => {
             return (
               <Input
+                key={xIndex}
                 placeholder={Array(numberOfZ)
                   .fill(0)
                   .map((_, zIndex) => `x${xIndex + 1}z${zIndex + 1}`)
@@ -104,6 +105,7 @@ const SolvePage = () => {
           {W.map((_, yIndex) => {
             return (
               <Input
+                key={yIndex}
                 placeholder={Array(numberOfZ)
                   .fill(0)
                   .map((_, zIndex) => `y${yIndex + 1}z${zIndex + 1}`)
