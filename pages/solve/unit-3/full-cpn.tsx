@@ -9,6 +9,8 @@ const SolvePage = () => {
   const [numberOfY, setNumberOfY] = useState(0);
   const [V, setV] = useState<string[]>([]);
   const [W, setW] = useState<string[]>([]);
+  const [xInput, setXInput] = useState<string>("");
+  const [yInput, setYInput] = useState<string>("");
   useEffect(() => {
     setV(Array(numberOfX).fill(""));
   }, [numberOfX]);
@@ -16,9 +18,7 @@ const SolvePage = () => {
     setW(Array(numberOfY).fill(""));
   }, [numberOfY]);
 
-  const handleSubmit = ()=>{
-
-  }
+  const handleSubmit = () => {};
   return (
     <StyledSolver>
       <h1>Full CPN solver</h1>
@@ -46,6 +46,35 @@ const SolvePage = () => {
           else setNumberOfY(0);
         }}
       />
+      {numberOfX > 0 && (
+        <>
+          <h4>Enter x inputs</h4>
+          <Input
+            placeholder={Array(numberOfX)
+              .fill(0)
+              .map((_, idx) => `x${idx + 1}`)
+              .join("   ")}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value) setXInput(value);
+              else setXInput("");
+            }}
+          />
+        </>
+      )}
+      {numberOfY > 0 && (
+        <>
+          <h4>Enter y inputs</h4>
+          <Input
+            placeholder="Enter y input"
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value) setYInput(value);
+              else setYInput("");
+            }}
+          />
+        </>
+      )}
       {numberOfX * numberOfZ > 0 && (
         <>
           <br />
