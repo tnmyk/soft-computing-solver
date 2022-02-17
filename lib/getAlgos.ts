@@ -11,6 +11,12 @@ const algosData = [
     unit: "1",
     id: 2,
   },
+  {
+    url: "full-cpn",
+    name: "Full CPN",
+    unit: "3",
+    id: 3,
+  },
 ];
 
 const getAlgos = () => {
