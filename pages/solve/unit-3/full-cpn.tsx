@@ -12,11 +12,9 @@ const SolvePage = () => {
   const [W, setW] = useState<string[]>([]);
   const [xInput, setXInput] = useState<string>("");
   const [yInput, setYInput] = useState<string>("");
+  const [alpha, setAlpha] = useState<number>(0);
+  const [beta, setBeta] = useState<number>(0);
 
-  // change to hooks
-  const alpha = 0.2;
-  const beta = 0.2;
-  //
   useEffect(() => {
     setV(Array(numberOfX).fill(""));
   }, [numberOfX]);
@@ -26,33 +24,59 @@ const SolvePage = () => {
 
   const handleSubmit = () => {
     const ans = solve(V, W, xInput, yInput, alpha, beta);
-    console.log(ans)
+    console.log(ans);
   };
   return (
     <StyledSolver>
       <h1>Full CPN solver</h1>
       <Input
         placeholder="Number of X inputs"
+        type="number"
+        value={numberOfX > 0 ? numberOfX : ""}
         onChange={(e) => {
           const value = parseInt(e.target.value);
-          if (value) setNumberOfX(value);
-          else setNumberOfX(0);
+          if (!value || value > 10) setNumberOfX(0);
+          else setNumberOfX(value);
         }}
       />
       <Input
         placeholder="Number of Z inputs"
+        type="number"
+        value={numberOfZ > 0 ? numberOfZ : ""}
         onChange={(e) => {
           const value = parseInt(e.target.value);
-          if (value) setNumberOfZ(value);
-          else setNumberOfZ(0);
+          if (!value || value > 10) setNumberOfZ(0);
+          else setNumberOfZ(value);
         }}
       />
       <Input
         placeholder="Number of Y inputs"
+        type="number"
+        value={numberOfY > 0 ? numberOfY : ""}
         onChange={(e) => {
           const value = parseInt(e.target.value);
-          if (value) setNumberOfY(value);
-          else setNumberOfY(0);
+          if (!value || value > 10) setNumberOfY(0);
+          else setNumberOfY(value);
+        }}
+      />
+      <Input
+        placeholder="Alpha"
+        type="number"
+        value={alpha > 0 ? alpha : ""}
+        onChange={(e) => {
+          const value = Number(e.target.value);
+          if (!value || value > 1) setAlpha(0);
+          else setAlpha(value);
+        }}
+      />
+      <Input
+        placeholder="Beta"
+        type="number"
+        value={beta > 0 ? beta : ""}
+        onChange={(e) => {
+          const value = Number(e.target.value);
+          if (!value || value > 1) setBeta(0);
+          else setBeta(value);
         }}
       />
       {numberOfX > 0 && (
