@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
 import { StyledSolver } from "../../../components/styles/styledSolver";
 
@@ -14,6 +15,10 @@ const SolvePage = () => {
   useEffect(() => {
     setW(Array(numberOfY).fill(""));
   }, [numberOfY]);
+
+  const handleSubmit = ()=>{
+
+  }
   return (
     <StyledSolver>
       <h1>Full CPN solver</h1>
@@ -41,36 +46,50 @@ const SolvePage = () => {
           else setNumberOfY(0);
         }}
       />
-      {V.map((_, xIndex) => {
-        return (
-          <Input
-            placeholder={Array(numberOfZ)
-              .fill(0)
-              .map((_, zIndex) => `x${xIndex + 1}z${zIndex + 1}`)
-              .join("   ")}
-            onChange={(e) => {
-              const tempArr = [...V];
-              tempArr[xIndex] = e.target.value;
-              setV(tempArr);
-            }}
-          />
-        );
-      })}
-      {W.map((_, yIndex) => {
-        return (
-          <Input
-            placeholder={Array(numberOfZ)
-              .fill(0)
-              .map((_, zIndex) => `y${yIndex + 1}z${zIndex + 1}`)
-              .join("   ")}
-            onChange={(e) => {
-              const tempArr = [...W];
-              tempArr[yIndex] = e.target.value;
-              setW(tempArr);
-            }}
-          />
-        );
-      })}
+      {numberOfX * numberOfZ > 0 && (
+        <>
+          <br />
+          <h3>Enter weights for V</h3>
+          {V.map((_, xIndex) => {
+            return (
+              <Input
+                placeholder={Array(numberOfZ)
+                  .fill(0)
+                  .map((_, zIndex) => `x${xIndex + 1}z${zIndex + 1}`)
+                  .join("   ")}
+                onChange={(e) => {
+                  const tempArr = [...V];
+                  tempArr[xIndex] = e.target.value;
+                  setV(tempArr);
+                }}
+              />
+            );
+          })}
+        </>
+      )}
+      {numberOfY * numberOfZ > 0 && (
+        <>
+          <br />
+          <h3>Enter weights for W</h3>
+
+          {W.map((_, yIndex) => {
+            return (
+              <Input
+                placeholder={Array(numberOfZ)
+                  .fill(0)
+                  .map((_, zIndex) => `y${yIndex + 1}z${zIndex + 1}`)
+                  .join("   ")}
+                onChange={(e) => {
+                  const tempArr = [...W];
+                  tempArr[yIndex] = e.target.value;
+                  setW(tempArr);
+                }}
+              />
+            );
+          })}
+        </>
+      )}
+      <Button onClick={handleSubmit}>Submit</Button>
     </StyledSolver>
   );
 };
