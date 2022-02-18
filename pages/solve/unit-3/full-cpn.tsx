@@ -189,12 +189,11 @@ const SolvePage = () => {
           })}
         </Matrix>
       </div>
-        {steps && (
-          <Steps>
-            {" "}
-            <div dangerouslySetInnerHTML={{ __html: steps }} />
-          </Steps>
-        )}
+      {steps && (
+        <Steps>
+          <div dangerouslySetInnerHTML={{ __html: steps }} />
+        </Steps>
+      )}
     </StyledSolver>
   );
 };

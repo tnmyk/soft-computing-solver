@@ -47,22 +47,34 @@ const getD = (
   steps += `D(${J + 1}) = `;
   let stepsWithVariables = "";
   let stepsWithReplacedValues = "";
+  let stepsWithValues = "";
   for (let i = 0; i < V.length; ++i) {
     stepsWithVariables += `+ (x<sub>${i + 1}</sub> - v<sub>${i + 1}${
       J + 1
     }</sub>)<sup>2</sup> `;
     stepsWithReplacedValues += `+ (${X[i]} - ${V[i][J]})<sup>2</sup> `;
-    sum += Math.pow(X[i] - V[i][J], 2);
+    const toAdd = Math.pow(X[i] - V[i][J], 2);
+    stepsWithValues += `+ ${toAdd} `;
+    sum += toAdd;
   }
   for (let i = 0; i < W.length; ++i) {
     stepsWithVariables += `+ (y<sub>${i + 1}</sub> - w<sub>${i + 1}${
       J + 1
     }</sub>)<sup>2</sup> `;
     stepsWithReplacedValues += `+ (${Y[i]} - ${W[i][J]})<sup>2</sup> `;
-    sum += Math.pow(Y[i] - W[i][J], 2);
+    const toAdd = Math.pow(Y[i] - W[i][J], 2);
+    stepsWithValues += `+ ${toAdd} `;
+    sum += toAdd;
   }
-  steps += stepsWithVariables + "\n= " + stepsWithReplacedValues + "\n\n";
-  // console.log(sum);
+  steps +=
+    stepsWithVariables +
+    "\n= " +
+    stepsWithReplacedValues +
+    "\n= " +
+    stepsWithValues +
+    "\n= " +
+    sum +
+    "\n\n";
   return sum;
 };
 
