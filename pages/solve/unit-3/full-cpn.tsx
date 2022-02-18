@@ -19,6 +19,7 @@ const SolvePage = () => {
   const [alpha, setAlpha] = useState<number>(0);
   const [beta, setBeta] = useState<number>(0);
   const [steps, setSteps] = useState("");
+  const [ans, setAns] = useState<{ [key: string]: number[][] }>();
   useEffect(() => {
     setV(Array(numberOfX).fill(""));
   }, [numberOfX]);
@@ -33,6 +34,7 @@ const SolvePage = () => {
       steps: ansSteps,
     } = solve(V, W, xInput, yInput, alpha, beta);
     setSteps(ansSteps);
+    setAns({ V: ansV, W: ansW });
   };
   return (
     <StyledSolver>
@@ -190,9 +192,35 @@ const SolvePage = () => {
         </Matrix>
       </div>
       {steps && (
-        <Steps>
-          <div dangerouslySetInnerHTML={{ __html: steps }} />
-        </Steps>
+        <div>
+          <Steps>
+            <div dangerouslySetInnerHTML={{ __html: steps }} />
+          </Steps>
+          V =
+          <Matrix>
+            {ans!.V.map((v, idx) => {
+              return (
+                <div key={idx}>
+                  {v.map((_, _idx) => (
+                    <span key={_idx}>{_}</span>
+                  ))}
+                </div>
+              );
+            })}
+          </Matrix>
+          W ={" "}
+          <Matrix>
+            {ans!.W.map((w, idx) => {
+              return (
+                <div key={idx}>
+                  {w.map((_, _idx) => (
+                    <span key={_idx}>{_}</span>
+                  ))}
+                </div>
+              );
+            })}
+          </Matrix>
+        </div>
       )}
     </StyledSolver>
   );

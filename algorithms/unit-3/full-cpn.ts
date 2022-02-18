@@ -23,7 +23,7 @@ const solve = (
       }${J}(old)</sub>] = ${V[i][J - 1]} + ${alpha}(${X[i]} - ${
         V[i][J - 1]
       }) = ${newVal}\n\n\n`;
-      V[i][J - 1] = newVal;
+      V[i][J - 1] = Math.round(newVal * 100) / 100;
     }
 
     steps += `Weight updation between y-input and cluster-layer,\n w<sub>kJ</sub>(new) = w<sub>kJ</sub>(old) + β[y<sub>k</sub> - w<sub>kJ</sub>(old)]\n\n For k = 1 to ${W.length} and J = ${winningIndex}, we obtain,\n\n`;
@@ -36,7 +36,7 @@ const solve = (
       }${J}(old)</sub>] = ${W[i][J - 1]} + ${beta}(${Y[i]} - ${
         W[i][J - 1]
       }) = ${newVal}\n\n\n`;
-      W[i][J - 1] = newVal;
+      W[i][J - 1] = Math.round(newVal * 100) / 100;
     }
   };
 
