@@ -158,11 +158,11 @@ const SolvePage = () => {
       <div>
         V =
         <Matrix>
-          {V.map((v) => {
+          {V.map((v, idx) => {
             return (
-              <div>
-                {v.split(" ").map((_) => (
-                  <span>{_}</span>
+              <div key={idx}>
+                {v.split(" ").map((_, _idx) => (
+                  <span key={_idx}>{_}</span>
                 ))}
               </div>
             );
@@ -170,11 +170,11 @@ const SolvePage = () => {
         </Matrix>{" "}
         W ={" "}
         <Matrix>
-          {W.map((w) => {
+          {W.map((w, idx) => {
             return (
-              <div>
-                {w.split(" ").map((_) => (
-                  <span>{_}</span>
+              <div key={idx}>
+                {w.split(" ").map((_, _idx) => (
+                  <span key={_idx}>{_}</span>
                 ))}
               </div>
             );
