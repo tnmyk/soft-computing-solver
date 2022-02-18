@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import solve from "../../../algorithms/unit-3/full-cpn";
 import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
-import { StyledSolver, Matrix } from "../../../components/styles/styledSolver";
+import {
+  StyledSolver,
+  Matrix,
+  Steps,
+} from "../../../components/styles/styledSolver";
 
 const SolvePage = () => {
   const [numberOfX, setNumberOfX] = useState(0);
@@ -184,8 +188,13 @@ const SolvePage = () => {
             );
           })}
         </Matrix>
-        {steps && <div dangerouslySetInnerHTML={{ __html: steps }} />}
       </div>
+        {steps && (
+          <Steps>
+            {" "}
+            <div dangerouslySetInnerHTML={{ __html: steps }} />
+          </Steps>
+        )}
     </StyledSolver>
   );
 };

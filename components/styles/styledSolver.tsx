@@ -36,3 +36,10 @@ export const Matrix = styled.div`
     column-gap: 1rem;
   }
 `;
+
+export const Steps = styled.div`
+  white-space: pre-line;
+  width: 80%;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+`;

@@ -45,26 +45,23 @@ const getD = (
   J -= 1;
   let sum = 0;
   steps += `D(${J + 1}) = `;
+  let stepsWithVariables = "";
+  let stepsWithReplacedValues = "";
   for (let i = 0; i < V.length; ++i) {
-    steps += `+ (x<sub>${i + 1}</sub> - v<sub>${i + 1}${
+    stepsWithVariables += `+ (x<sub>${i + 1}</sub> - v<sub>${i + 1}${
       J + 1
     }</sub>)<sup>2</sup> `;
-  }
-  for (let i = 0; i < W.length; ++i) {
-    steps += `+ (y<sub>${i + 1}</sub> - w<sub>${i + 1}${
-      J + 1
-    }</sub>)<sup>2</sup> `;
-  }
-  steps += "\n\n = ";
-  for (let i = 0; i < V.length; ++i) {
-    steps += `+ (${X[i]} - ${V[i][J]})<sup>2</sup> `;
+    stepsWithReplacedValues += `+ (${X[i]} - ${V[i][J]})<sup>2</sup> `;
     sum += Math.pow(X[i] - V[i][J], 2);
   }
   for (let i = 0; i < W.length; ++i) {
-    steps += `+ (${Y[i]} - ${W[i][J]})<sup>2</sup> `;
+    stepsWithVariables += `+ (y<sub>${i + 1}</sub> - w<sub>${i + 1}${
+      J + 1
+    }</sub>)<sup>2</sup> `;
+    stepsWithReplacedValues += `+ (${Y[i]} - ${W[i][J]})<sup>2</sup> `;
     sum += Math.pow(Y[i] - W[i][J], 2);
   }
-  steps += "\n";
+  steps += stepsWithVariables + "\n= " + stepsWithReplacedValues + "\n\n";
   // console.log(sum);
   return sum;
 };
