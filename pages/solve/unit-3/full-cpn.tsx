@@ -165,32 +165,34 @@ const SolvePage = () => {
       )}
       <Button onClick={handleSubmit}>Submit</Button>
 
-      <div>
-        V =
-        <Matrix>
-          {V.map((v, idx) => {
-            return (
-              <div key={idx}>
-                {v.split(" ").map((_, _idx) => (
-                  <span key={_idx}>{_}</span>
-                ))}
-              </div>
-            );
-          })}
-        </Matrix>{" "}
-        W ={" "}
-        <Matrix>
-          {W.map((w, idx) => {
-            return (
-              <div key={idx}>
-                {w.split(" ").map((_, _idx) => (
-                  <span key={_idx}>{_}</span>
-                ))}
-              </div>
-            );
-          })}
-        </Matrix>
-      </div>
+      {steps && (
+        <div>
+          V =
+          <Matrix>
+            {V.map((v, idx) => {
+              return (
+                <div key={idx}>
+                  {v.split(" ").map((_, _idx) => (
+                    <span key={_idx}>{_}</span>
+                  ))}
+                </div>
+              );
+            })}
+          </Matrix>{" "}
+          W ={" "}
+          <Matrix>
+            {W.map((w, idx) => {
+              return (
+                <div key={idx}>
+                  {w.split(" ").map((_, _idx) => (
+                    <span key={_idx}>{_}</span>
+                  ))}
+                </div>
+              );
+            })}
+          </Matrix>
+        </div>
+      )}
       {steps && (
         <div>
           <Steps>
