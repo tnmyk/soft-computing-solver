@@ -7,7 +7,7 @@ const solve = (
   beta: number
 ) => {
   const X = inputStringX.split(" ").map((x) => Number(x));
-  const Y = inputStringX.split(" ").map((x) => Number(x));
+  const Y = inputStringY.split(" ").map((x) => Number(x));
   const V = arrayOfStringV.map((strV) => strV.split(" ").map((v) => Number(v)));
   const W = arrayOfStringW.map((strW) => strW.split(" ").map((w) => Number(w)));
 
