@@ -49,6 +49,8 @@ const solve = (
   steps += `Since D${winningIndex} is minimum, therefore,  the winner unit index is J = ${winningIndex}.\n Updating the weights on the winner unit, \n\n`;
   updateWeights(winningIndex);
 
+  steps += `Thus, updated weights are \n\n`;
+
   return { W, V, steps };
 };
 
