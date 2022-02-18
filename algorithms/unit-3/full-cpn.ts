@@ -11,26 +11,44 @@ const solve = (
   const Y = inputStringY.split(" ").map((x) => Number(x));
   const V = arrayOfStringV.map((strV) => strV.split(" ").map((v) => Number(v)));
   const W = arrayOfStringW.map((strW) => strW.split(" ").map((w) => Number(w)));
+  const jMax = V[0].length === W[0].length ? W[0].length : 0;
   const updateWeights = (J: number) => {
-    J -= 1;
+    steps += `Weight updation between x-input and cluster-layer,\n v<sub>iJ</sub>(new) = v<sub>iJ</sub>(old) + α[x<sub>i</sub> - v<sub>iJ</sub>(old)]\n\n For i = 1 to ${V.length} and J = ${winningIndex}, we obtain\n\n`;
     for (let i = 0; i < V.length; ++i) {
-      V[i][J] += alpha * (X[i] - V[i][J]);
+      const newVal = V[i][J - 1] + alpha * (X[i] - V[i][J - 1]);
+      steps += `v<sub>${i + 1}${J}(new)</sub> = v<sub>${
+        i + 1
+      }${J}(old)</sub> + α[x<sub>${i + 1}</sub> - v<sub>${
+        i + 1
+      }${J}(old)</sub>] = ${V[i][J - 1]} + ${alpha}(${X[i]} - ${
+        V[i][J - 1]
+      }) = ${newVal}\n\n\n`;
+      V[i][J - 1] = newVal;
     }
+
+    steps += `Weight updation between y-input and cluster-layer,\n w<sub>kJ</sub>(new) = w<sub>kJ</sub>(old) + β[y<sub>k</sub> - w<sub>kJ</sub>(old)]\n\n For k = 1 to ${W.length} and J = ${winningIndex}, we obtain,\n\n`;
     for (let i = 0; i < W.length; ++i) {
-      W[i][J] += beta * (Y[i] - W[i][J]);
+      const newVal = W[i][J - 1] + beta * (Y[i] - W[i][J - 1]);
+      steps += `w<sub>${i + 1}${J}(new)</sub> = w<sub>${
+        i + 1
+      }${J}(old)</sub> + β[y<sub>${i + 1}</sub> - w<sub>${
+        i + 1
+      }${J}(old)</sub>] = ${W[i][J - 1]} + ${beta}(${Y[i]} - ${
+        W[i][J - 1]
+      }) = ${newVal}\n\n\n`;
+      W[i][J - 1] = newVal;
     }
   };
 
-  let D1 = getD(1, V, W, X, Y);
-  let D2 = getD(2, V, W, X, Y);
+  const arrOfDs = Array(jMax)
+    .fill(0)
+    .map((_temp, J) => getD(J + 1, V, W, X, Y));
 
-  if (D1 < D2) {
-    // D1 is winning, update on J = 1
-    updateWeights(1);
-  } else {
-    // D2 is winning, update on J = 2
-    updateWeights(2);
-  }
+  const winningIndex = arrOfDs.indexOf(Math.min(...arrOfDs)) + 1;
+
+  steps += `Since D${winningIndex} is minimum, therefore,  the winner unit index is J = ${winningIndex}.\n Updating the weights on the winner unit, \n\n`;
+  updateWeights(winningIndex);
+
   return { W, V, steps };
 };
 
