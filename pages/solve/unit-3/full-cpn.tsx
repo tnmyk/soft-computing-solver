@@ -14,7 +14,7 @@ const SolvePage = () => {
   const [yInput, setYInput] = useState<string>("");
   const [alpha, setAlpha] = useState<number>(0);
   const [beta, setBeta] = useState<number>(0);
-
+  const [steps, setSteps] = useState("");
   useEffect(() => {
     setV(Array(numberOfX).fill(""));
   }, [numberOfX]);
@@ -23,8 +23,12 @@ const SolvePage = () => {
   }, [numberOfY]);
 
   const handleSubmit = () => {
-    const ans = solve(V, W, xInput, yInput, alpha, beta);
-    console.log(ans);
+    const {
+      V: ansV,
+      W: ansW,
+      steps: ansSteps,
+    } = solve(V, W, xInput, yInput, alpha, beta);
+    setSteps(ansSteps);
   };
   return (
     <StyledSolver>
@@ -180,6 +184,7 @@ const SolvePage = () => {
             );
           })}
         </Matrix>
+        {steps && <div dangerouslySetInnerHTML={{ __html: steps }} />}
       </div>
     </StyledSolver>
   );
