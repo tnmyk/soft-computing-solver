@@ -21,3 +21,25 @@ export const Table = styled.table`
     background-color: #c7c7ff;
   }
 `;
+
+export const Matrix = styled.div`
+  display: inline-flex;
+  vertical-align: middle;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  flex-direction: column;
+  row-gap: 1rem;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  div {
+    display: flex;
+    column-gap: 1rem;
+  }
+`;
+
+export const Steps = styled.div`
+  white-space: pre-line;
+  width: 80%;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+`;

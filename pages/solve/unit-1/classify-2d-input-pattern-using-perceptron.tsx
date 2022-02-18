@@ -3,7 +3,11 @@ import styled from "styled-components";
 import Solve from "../../../algorithms/unit-1/classify-2d-input-pattern-using-perceptron";
 import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
-import { StyledSolver, Table } from "../../../components/styles/styledSolver";
+import {
+  Steps,
+  StyledSolver,
+  Table,
+} from "../../../components/styles/styledSolver";
 
 const SolvePage = () => {
   const [numberOfPatterns, setNumberOfPatterns] = useState<number>(0);
@@ -101,7 +105,7 @@ const SolvePage = () => {
             })}
           </Steps>
           <Table>
-          <caption>Weights after each step</caption>
+            <caption>Weights after each step</caption>
             <tbody>
               <tr>
                 <td />
@@ -133,14 +137,3 @@ const SolvePage = () => {
 };
 
 export default SolvePage;
-
-const Col = styled.col`
-  background-color: red !important;
-`;
-
-const Steps = styled.div`
-  white-space: pre-line;
-  width: 80%;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-`;
