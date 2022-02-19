@@ -18,6 +18,7 @@ interface Props {
     url: string;
     unit: string;
     id: number;
+    rank: number;
   }>;
 }
 
@@ -41,7 +42,7 @@ const Home: NextPage<Props> = ({ algos }) => {
             <div key={idx}>
               <Link href={`/solve/unit-${algo.unit}/${algo.url}`}>
                 <StyledLink>
-                  {algo.id}. {algo.name}
+                  {algo.rank}. {algo.name}
                 </StyledLink>
               </Link>
             </div>
