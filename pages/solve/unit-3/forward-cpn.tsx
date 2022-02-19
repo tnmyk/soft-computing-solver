@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import solve from "../../../algorithms/unit-3/forward-cpn";
 import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
-import { StyledSolver } from "../../../components/styles/styledSolver";
+import {
+  Matrix,
+  Steps,
+  StyledSolver,
+} from "../../../components/styles/styledSolver";
 
 const SolverPage = () => {
   const [numberOfX, setNumberOfX] = useState(0);
@@ -161,6 +165,65 @@ const SolverPage = () => {
         </>
       )}
       <Button onClick={handleSubmit}>Submit</Button>
+      {steps && (
+        <div>
+          V =
+          <Matrix>
+            {V.map((v, idx) => {
+              return (
+                <div key={idx}>
+                  {v.split(" ").map((_, _idx) => (
+                    <span key={_idx}>{_}</span>
+                  ))}
+                </div>
+              );
+            })}
+          </Matrix>{" "}
+          W ={" "}
+          <Matrix>
+            {W.map((w, idx) => {
+              return (
+                <div key={idx}>
+                  {w.split(" ").map((_, _idx) => (
+                    <span key={_idx}>{_}</span>
+                  ))}
+                </div>
+              );
+            })}
+          </Matrix>
+        </div>
+      )}
+      {steps && (
+        <div>
+          <Steps>
+            <div dangerouslySetInnerHTML={{ __html: steps }} />
+          </Steps>
+          V =
+          <Matrix>
+            {ans!.V.map((v, idx) => {
+              return (
+                <div key={idx}>
+                  {v.map((_, _idx) => (
+                    <span key={_idx}>{_}</span>
+                  ))}
+                </div>
+              );
+            })}
+          </Matrix>
+          W ={" "}
+          <Matrix>
+            {ans!.W.map((w, idx) => {
+              return (
+                <div key={idx}>
+                  {w.map((_, _idx) => (
+                    <span key={_idx}>{_}</span>
+                  ))}
+                </div>
+              );
+            })}
+          </Matrix>
+        </div>
+      )}
     </StyledSolver>
   );
 };
