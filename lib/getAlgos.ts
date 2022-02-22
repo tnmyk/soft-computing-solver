@@ -20,6 +20,13 @@ const algosData = [
     id: 3,
     rank: 3,
   },
+  {
+    url: "forward-cpn",
+    name: "Forward CPN",
+    unit: "3",
+    id: 4,
+    rank: 4,
+  },
 ];
 
 const getAlgos = () => {
