@@ -27,24 +27,34 @@ const solve = (
   const inputArr = inputStringArr.map((inputStr) =>
     inputStr.split(" ").map((inn) => Number(inn))
   );
-  const bArr = bottomUpWeights
-    .trim()
-    .split("\n")
-    .map((row) =>
-      row
-        .trim()
-        .split(" ")
-        .map((inn) => Number(inn))
-    );
-  const tArr = topDownWeights
-    .trim()
-    .split("\n")
-    .map((row) =>
-      row
-        .trim()
-        .split(" ")
-        .map((inn) => Number(inn))
-    );
+  const bArr =
+    bottomUpWeights.trim() === ""
+      ? Array(n)
+          .fill(0)
+          .map(() => Array(m).fill(1 / (1 + n)))
+      : bottomUpWeights
+          .trim()
+          .split("\n")
+          .map((row) =>
+            row
+              .trim()
+              .split(" ")
+              .map((inn) => Number(inn))
+          );
+  const tArr =
+    topDownWeights.trim() === ""
+      ? Array(m)
+          .fill(0)
+          .map(() => Array(n).fill(1))
+      : topDownWeights
+          .trim()
+          .split("\n")
+          .map((row) =>
+            row
+              .trim()
+              .split(" ")
+              .map((inn) => Number(inn))
+          );
   for (let inputNo = 0; inputNo < inputArr.length; ++inputNo) {
     // replace 1 with n
     console.log({ inputNo });
