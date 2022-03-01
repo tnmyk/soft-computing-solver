@@ -144,7 +144,7 @@ const solve = (
       `The top-down weights become:\n t<sub>Ji</sub> = [${tArr.join(" , ")}]`
     );
   }
-  return steps;
+  return steps.join(`\n`);
 };
 
 export default solve;

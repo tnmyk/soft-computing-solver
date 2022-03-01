@@ -3,7 +3,7 @@ import solve from "../../../algorithms/unit-3/art";
 import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
 import { TextArea } from "../../../components/Input/TextArea";
-import { StyledSolver } from "../../../components/styles/styledSolver";
+import { Steps, StyledSolver } from "../../../components/styles/styledSolver";
 
 const SolverPage = () => {
   const [numberOfInputs, setNumberOfInputs] = useState(0);
@@ -14,12 +14,13 @@ const SolverPage = () => {
   const [inputsArr, setInputsArr] = useState<string[]>([]);
   const [bottomUpWeights, setBottomUpWeights] = useState("");
   const [topDownWeights, setTopDownWeights] = useState("");
+  const [steps, setSteps] = useState("");
   useEffect(() => {
     setInputsArr(Array(numberOfInputs).fill(""));
   }, [numberOfInputs]);
 
   const handleSubmit = () => {
-    solve(
+    const getSteps = solve(
       n,
       numberOfClusters,
       p,
@@ -28,6 +29,7 @@ const SolverPage = () => {
       bottomUpWeights,
       topDownWeights
     );
+    setSteps(getSteps);
   };
   return (
     <StyledSolver>
@@ -119,6 +121,13 @@ const SolverPage = () => {
         }}
       />
       <Button onClick={handleSubmit}>Submit</Button>
+      {steps && (
+        <div>
+          <Steps>
+            <div dangerouslySetInnerHTML={{ __html: steps }} />
+          </Steps>
+        </div>
+      )}
     </StyledSolver>
   );
 };
