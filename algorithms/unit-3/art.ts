@@ -94,33 +94,57 @@ const solve = (
         new Set(getNetInputsToEachNode(inputArr[inputNo], bArr, n, m))
       ),
     ];
-    console.log({ yArr });
     let winningIndex!: number;
     let xnorm = -1;
     let x!: number[];
     while (xnorm / snorm < p) {
       winningIndex = yArr.indexOf(Math.max(...yArr)) + 1;
+      steps.push(`Winning Index = J = ${winningIndex}`);
       yArr[winningIndex - 1] = -1;
-      console.log({ winningIndex });
 
+      steps.push(
+        `x<sub>i</sub> = s<sub>i</sub>t<sub>Ji</sub>\nx1 = [${inputArr[
+          inputNo
+        ].join(" ")}][${tArr[winningIndex - 1].join(" ")}]`
+      );
       x = inputArr[inputNo].map(
         (_, idx) => inputArr[inputNo][idx] * tArr[winningIndex - 1][idx]
       );
-      console.log({ x });
-
       xnorm = getNorm(x);
+      const reset: number = xnorm / snorm;
+      steps.push(
+        `x = [${x.join(
+          " "
+        )}]\nNorm of x = ||x|| = ${xnorm}\n Test for reset condition:\n\t ||x||/||s|| = ${xnorm}/${snorm} = ${reset}` +
+          (reset > p
+            ? ` >= ${p} (p)\n Hence, reset condition is false.`
+            : ` < ${p} (p)\n Hence, reset condition is true. Recomputing winning Index`)
+      );
     }
-
-    console.log({ xnorm });
-
-    // reset is false, proceed to step 12
+    steps.push(
+      `Update bottom-up weights for α = ${alpha}:\n b<sub>iJ(new)</sub> = (αx<sub>i</sub>)/(α - 1 + ||x||) = (${alpha}x<sub>i</sub>)/(${
+        alpha - 1
+      } + ||x||)`
+    );
     for (let i = 0; i < bArr.length; ++i) {
       bArr[i][winningIndex - 1] = (alpha * x[i]) / (alpha - 1 + xnorm);
+      steps.push(
+        `b${i + 1}${winningIndex} = ${alpha * x[i]}/ ${alpha - 1 + xnorm} = ${
+          bArr[i][winningIndex - 1]
+        }`
+      );
     }
+    steps.push(
+      `Therefore, the bottom-up weights become:\n b<sub>iJ</sub> = [${bArr.join(
+        " , "
+      )}]`
+    );
     tArr[winningIndex - 1] = x;
-
-    console.log({ bArr }, { tArr });
+    steps.push(
+      `The top-down weights become:\n t<sub>Ji</sub> = [${tArr.join(" , ")}]`
+    );
   }
+  return steps;
 };
 
 export default solve;
