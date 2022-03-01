@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import solve from "../../../algorithms/unit-3/art";
+import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
 import { TextArea } from "../../../components/Input/TextArea";
 import { StyledSolver } from "../../../components/styles/styledSolver";
 
 const SolverPage = () => {
   const [numberOfInputs, setNumberOfInputs] = useState(0);
+  const [n, setN] = useState(0);
   const [numberOfClusters, setNumberOfClusters] = useState(0);
   const [p, setP] = useState(0);
   const [alpha, setAlpha] = useState(0);
@@ -14,6 +17,18 @@ const SolverPage = () => {
   useEffect(() => {
     setInputsArr(Array(numberOfInputs).fill(""));
   }, [numberOfInputs]);
+
+  const handleSubmit = () => {
+    solve(
+      n,
+      numberOfClusters,
+      p,
+      alpha,
+      inputsArr,
+      bottomUpWeights,
+      topDownWeights
+    );
+  };
   return (
     <StyledSolver>
       <h1>Forward CPN Solver</h1>
@@ -25,6 +40,16 @@ const SolverPage = () => {
           const value = parseInt(e.target.value);
           if (!value || value > 10 || value < 0) setNumberOfInputs(0);
           else setNumberOfInputs(value);
+        }}
+      />
+      <Input
+        placeholder="N"
+        type="number"
+        value={n > 0 ? n : ""}
+        onChange={(e) => {
+          const value = parseInt(e.target.value);
+          if (!value || value > 10 || value < 0) setN(0);
+          else setN(value);
         }}
       />
       <Input
@@ -93,6 +118,7 @@ const SolverPage = () => {
           setTopDownWeights(value);
         }}
       />
+      <Button onClick={handleSubmit}>Submit</Button>
     </StyledSolver>
   );
 };
