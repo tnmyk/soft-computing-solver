@@ -28,3 +28,8 @@ export const AlgosContainer = styled.div`
   width: 60%;
   margin-top: 3rem;
 `;
+
+export const UnitHeading = styled.h4`
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+`;
