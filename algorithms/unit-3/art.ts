@@ -45,7 +45,6 @@ const solve = (
         .split(" ")
         .map((inn) => Number(inn))
     );
-  let winningIndex: number;
   for (let inputNo = 0; inputNo < inputArr.length; ++inputNo) {
     // replace 1 with n
     console.log({ inputNo });
@@ -57,8 +56,9 @@ const solve = (
       ),
     ];
     console.log({ yArr });
+    let winningIndex!: number;
     let xnorm = -1;
-    let x: number[];
+    let x!: number[];
     while (xnorm / snorm < p) {
       winningIndex = yArr.indexOf(Math.max(...yArr)) + 1;
       yArr[winningIndex - 1] = -1;
