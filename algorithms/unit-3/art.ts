@@ -70,7 +70,11 @@ const solve = (
   steps.push(
     `Bottom-up-weights, b<sub>ij</sub>(0) = 1/(1+n) = 1/${n + 1} = ${bij0}`
   );
-  steps.push(`Top-down-weights t<sub>ji</sub>(0) = 1`);
+  steps.push(
+    `Top-down-weights t<sub>ji</sub>(0) = 1\n\t b<sub>ij</sub> = [${bArr.join(
+      "\n"
+    )}]\n\n\t t<sub>ji</sub> = [${tArr.join("\n")}]\n`
+  );
 
   for (let inputNo = 0; inputNo < inputArr.length; ++inputNo) {
     // replace 1 with n
@@ -103,7 +107,7 @@ const solve = (
       yArr[winningIndex - 1] = -1;
 
       steps.push(
-        `x<sub>i</sub> = s<sub>i</sub>t<sub>Ji</sub>\nx1 = [${inputArr[
+        `x<sub>i</sub> = s<sub>i</sub>t<sub>Ji</sub>\nxi = [${inputArr[
           inputNo
         ].join(" ")}][${tArr[winningIndex - 1].join(" ")}]`
       );
@@ -113,12 +117,14 @@ const solve = (
       xnorm = getNorm(x);
       const reset: number = xnorm / snorm;
       steps.push(
-        `x = [${x.join(
-          " "
-        )}]\nNorm of x = ||x|| = ${xnorm}\n Test for reset condition:\n\t ||x||/||s|| = ${xnorm}/${snorm} = ${reset}` +
+        `x<sub>i</sub> = [${x.join(" ")}]\nNorm of x = ||x|| = ${x.join(
+          " + "
+        )}  = ${xnorm}\n Test for reset condition:\n\t ||x||/||s|| = ${xnorm}/${snorm} = ${reset}` +
           (reset > p
             ? ` >= ${p} (p)\n Hence, reset condition is false.`
-            : ` < ${p} (p)\n Hence, reset condition is true. Recomputing winning Index`)
+            : ` < ${p} (p)\n Hence, reset condition is true. Recomputing winning Index.\n Inhibit node${winningIndex}, y${winningIndex} = -1\nNet input becomes, ${yArr
+                .map((_, idx) => `y${idx + 1} = ` + _)
+                .join("\n")} `)
       );
     }
     steps.push(
@@ -127,24 +133,28 @@ const solve = (
       } + ||x||)`
     );
     for (let i = 0; i < bArr.length; ++i) {
-      bArr[i][winningIndex - 1] = (alpha * x[i]) / (alpha - 1 + xnorm);
+      const newBvalue =
+        Math.round(((alpha * x[i]) / (alpha - 1 + xnorm)) * 1000) / 1000;
+      bArr[i][winningIndex - 1] = newBvalue;
       steps.push(
-        `b${i + 1}${winningIndex} = ${alpha * x[i]}/ ${alpha - 1 + xnorm} = ${
-          bArr[i][winningIndex - 1]
-        }`
+        `b<sub>${i + 1}${winningIndex}</sub> = ${alpha * x[i]}/ ${
+          alpha - 1 + xnorm
+        } = ${bArr[i][winningIndex - 1]}`
       );
     }
     steps.push(
       `Therefore, the bottom-up weights become:\n b<sub>iJ</sub> = [${bArr.join(
-        " , "
+        "\n"
       )}]`
     );
     tArr[winningIndex - 1] = x;
     steps.push(
-      `The top-down weights become:\n t<sub>Ji</sub> = [${tArr.join(" , ")}]`
+      `The top-down weights become:\n t<sub>Ji</sub>(new) = x<sub>i</sub>\nt<sub>Ji</sub> = [${tArr.join(
+        "\n"
+      )}]`
     );
   }
-  return steps.join(`\n`);
+  return steps.join(`\n\n`);
 };
 
 export default solve;
