@@ -15,10 +15,10 @@ export const Table = styled.table`
     /* border: 1px solid #555555; */
   }
   th {
-    background-color: #aaaaff;
+    background-color: #414547;
   }
   td {
-    background-color: #c7c7ff;
+    background-color: #303435;
   }
 `;
 

@@ -9,6 +9,7 @@ import {
   MainHeading,
   StyledHome,
   StyledLink,
+  UnitHeading,
 } from "../components/styles/styledHome";
 import getAlgos from "../lib/getAlgos";
 
@@ -24,7 +25,7 @@ interface Props {
 
 const Home: NextPage<Props> = ({ algos }) => {
   const [searchText, setSearchText] = useState<string>("");
-
+  let prevUnit = "0";
   const search = () => {
     const filtered = algos.filter((algo) =>
       algo.name.toLowerCase().includes(searchText.toLowerCase())
@@ -38,8 +39,14 @@ const Home: NextPage<Props> = ({ algos }) => {
     return (
       <AlgosContainer>
         {filtered.map((algo, idx) => {
+          const prevUnitInstance = prevUnit;
+          prevUnit = algo.unit;
+
           return (
             <div key={idx}>
+              {prevUnitInstance !== algo.unit && (
+                <UnitHeading>Unit-{algo.unit}</UnitHeading>
+              )}
               <Link href={`/solve/unit-${algo.unit}/${algo.url}`}>
                 <StyledLink>
                   {algo.rank}. {algo.name}

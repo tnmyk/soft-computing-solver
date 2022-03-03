@@ -27,6 +27,13 @@ const algosData = [
     id: 4,
     rank: 4,
   },
+  {
+    url: "art",
+    name: "Construct ART 1 network for clustering input vectors",
+    unit: "3",
+    id: 5,
+    rank: 5,
+  },
 ];
 
 const getAlgos = () => {

@@ -1,4 +1,4 @@
-import styled  from "styled-components";
+import styled from "styled-components";
 
 interface ButtonProps {
   size?: string;
@@ -26,10 +26,12 @@ export const Button = styled.button<ButtonProps>`
   padding: 0.6rem 0.9rem;
   border: none;
   border: 1px solid gray;
+  background-color: #27292a;
+  border: 1px solid #525759;
+  color: #ffffff;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
 `;
