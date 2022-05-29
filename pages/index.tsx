@@ -76,16 +76,16 @@ const Home: NextPage<Props> = ({ algos }) => {
   return (
     <StyledHome>
       <MainHeading>Soft Computing Solver</MainHeading>
-      <Description>Solve Soft Computing problems online </Description>
-      <IconedInputContainer style={{ margin: "1rem 0", marginTop: "4rem" }}>
+      <Description>Step-by-step solutions for learning and online exams</Description>
+      <IconedInputContainer style={{ margin: "1rem 0", marginTop: "2rem" }}>
         <Input
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
           type="text"
           placeholder="Search algorithms"
-          fontSize="1.3rem"
-          width="30rem"
+          fontSize="1.1rem"
+          width="32rem"
         />
         <AiOutlineSearch />
       </IconedInputContainer>

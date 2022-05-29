@@ -10,11 +10,11 @@ export const StyledHome = styled.div`
 `;
 
 export const MainHeading = styled.h1`
-  font-size: 3.5rem;
+  font-size: 3.8rem;
 `;
 
 export const Description = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-top: 0.5rem;
 `;
 
@@ -28,7 +28,7 @@ export const StyledLink = styled.a`
 
 export const AlgosContainer = styled.div`
   width: 60%;
-  margin-top: 3rem;
+  margin-top: 2.7rem;
 `;
 
 export const UnitHeading = styled.h4`
