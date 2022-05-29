@@ -7,7 +7,7 @@ const Nav = () => {
       <Link href="/">
         <Logo>
           Soft Computing
-          <img src="assets/logo.svg" width="50px" alt="" />
+          <img src="/assets/logo.svg" width="50px" alt="" />
         </Logo>
       </Link>
       <Menu>

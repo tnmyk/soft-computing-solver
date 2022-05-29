@@ -6,7 +6,6 @@ export const StyledHome = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 80vh;
 `;
 
 export const MainHeading = styled.h1`

@@ -5,7 +5,8 @@ export const StyledSolver = styled.div`
   flex-direction: column;
   align-items: center;
   row-gap: 1rem;
-  h1{
+  min-height: 85vh;
+  h1 {
     margin-bottom: 1rem;
   }
 `;
@@ -15,7 +16,6 @@ export const Table = styled.table`
   td {
     padding: 15px;
     border-width: 0;
-    /* border: 1px solid #555555; */
   }
   th {
     background-color: #414547;
