@@ -5,6 +5,9 @@ export const StyledSolver = styled.div`
   flex-direction: column;
   align-items: center;
   row-gap: 1rem;
+  h1{
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Table = styled.table`
