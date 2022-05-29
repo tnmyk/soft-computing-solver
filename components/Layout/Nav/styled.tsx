@@ -15,8 +15,13 @@ export const StyledNav = styled.nav`
 
 export const Logo = styled.a`
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  img{
+    margin-left: 0.2rem;
+  }
 `;
 
 export const Menu = styled.div`

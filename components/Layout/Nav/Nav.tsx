@@ -5,7 +5,11 @@ const Nav = () => {
   return (
     <StyledNav>
       <Link href="/">
-        <Logo>Soft Computing Solver</Logo>
+        {/* <Logo>Soft Computing Solver</Logo> */}
+        <Logo>
+          Soft Computing
+          <img src="assets/logo.svg" width="50px" alt="" />
+        </Logo>
       </Link>
       <Menu>
         <Link href="/">Home</Link>

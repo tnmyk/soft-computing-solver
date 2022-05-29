@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" version="1.1"><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
+  <marker id="a" overflow="visible" orient="auto">
+    <path d="m-10.690460000000002,-4.43707 l12.018600000000001,4.41947 l-12.018600000000001,4.41947 c1.9200500000000003,-2.6093100000000002 1.9089400000000003,-6.179250000000001 6.6e-7,-8.83894 z" stroke="#000" stroke-linejoin="round" id="svg_1"/>
+  </marker>
+  
+  
+  
+<g class="currentLayer" style=""><title>Layer 1</title><g fill="#ccecff" stroke="#ffffff" stroke-width="3" id="svg_2" class="" stroke-opacity="1">
+    <circle cx="300" cy="360" r="20" id="svg_3" stroke="#ffffff" stroke-opacity="1"/>
+    <circle cx="300" cy="280" r="20" id="svg_4" stroke="#ffffff" stroke-opacity="1"/>
+    <circle cx="300" cy="200" r="20" id="svg_5" stroke="#ffffff" stroke-opacity="1"/>
+    <circle cx="300" cy="40" r="20" id="svg_6" stroke="#ffffff" stroke-opacity="1"/>
+    <circle cx="300" cy="120" r="20" id="svg_7" stroke="#ffffff" stroke-opacity="1"/>
+  </g><g stroke="#ffffff" stroke-width="3" id="svg_8" class="" stroke-opacity="1" fill="#ffffff" fill-opacity="1">
+    <circle cx="120" cy="150" r="20" fill="#ffffff" id="svg_9" stroke="#ffffff" stroke-opacity="1" fill-opacity="1"/>
+    <circle cx="120" cy="250" r="20" fill="#ffffff" id="svg_10" stroke="#ffffff" stroke-opacity="1" fill-opacity="1"/>
+    <circle cx="480" cy="200" r="20" fill="#ffffff" id="svg_11" stroke="#ffffff" stroke-opacity="1" fill-opacity="1"/>
+  </g><g fill="#ffffff" stroke="#ffffff" stroke-width="2" id="svg_12" class="" fill-opacity="1" stroke-opacity="1">
+    <path d="m140 150 140-110" id="svg_13" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m140 250 140-210" id="svg_14" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m140 150 140-30" id="svg_15" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m140 250 140-130" id="svg_16" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m140 150 140 50" id="svg_17" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m140 250 140-50" id="svg_18" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m140 150 140 130" id="svg_19" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m140 250 140 30" id="svg_20" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m140 150 140 210" id="svg_21" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m140 250 140 110" id="svg_22" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m320 40 140 160" id="svg_23" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m320 120 140 80" id="svg_24" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m320 200h140" id="svg_25" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m320 280 140-80" id="svg_26" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m320 360 140-160" id="svg_27" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m30 150h50" marker-end="url(#a)" id="svg_28" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m515 200h50" marker-end="url(#a)" id="svg_29" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+    <path d="m30 250h50" marker-end="url(#a)" id="svg_30" fill="#ffffff" fill-opacity="1" stroke="#ffffff" stroke-opacity="1"/>
+  </g></g></svg>
