@@ -33,7 +33,22 @@ const Home: NextPage<Props> = ({ algos }) => {
 
     if (filtered.length === 0)
       return (
-        <h3 style={{ margin: "4rem auto" }}>No Algorithm found currently</h3>
+        <>
+          <h4 style={{ margin: "3rem auto 0.5rem auto", width: "max-content" }}>
+            No Algorithm match found.
+          </h4>
+          <h4>
+            Contribute on{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/tnmyk/soft-computing-solver"
+            >
+              Github
+            </a>
+            💙
+          </h4>
+        </>
       );
 
     return (
@@ -68,7 +83,7 @@ const Home: NextPage<Props> = ({ algos }) => {
             setSearchText(e.target.value);
           }}
           type="text"
-          placeholder="Search algorithm"
+          placeholder="Search algorithms"
           fontSize="1.3rem"
           width="30rem"
         />

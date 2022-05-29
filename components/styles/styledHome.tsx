@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const StyledHome = styled.div`
   padding-top: 5rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 80vh;
 `;
 
 export const MainHeading = styled.h1`
