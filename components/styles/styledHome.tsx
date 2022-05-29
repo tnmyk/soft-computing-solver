@@ -17,10 +17,10 @@ export const Description = styled.p`
 `;
 
 export const StyledLink = styled.a`
-  color: #2bb5ff;
-  font-size: 1.3rem;
+  color: #7ed2ff;
+  font-size: 1.1rem;
   display: inline-flex;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
   cursor: pointer;
 `;
 
@@ -31,5 +31,5 @@ export const AlgosContainer = styled.div`
 
 export const UnitHeading = styled.h4`
   margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
 `;
