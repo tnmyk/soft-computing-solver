@@ -5,7 +5,7 @@ export const StyledNav = styled.nav`
   padding-top: 2.5rem;
   display: flex;
   justify-content: space-between;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   a {
     color: inherit;
     text-decoration: none;
@@ -15,13 +15,13 @@ export const StyledNav = styled.nav`
 
 export const Logo = styled.a`
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   cursor: pointer;
 `;
 
 export const Menu = styled.div`
   display: flex;
-  column-gap: 3.5rem;
+  column-gap: 2.5rem;
   a {
     display: flex;
     align-items: center;

@@ -9,8 +9,12 @@ const Nav = () => {
       </Link>
       <Menu>
         <Link href="/">Home</Link>
-        <a href="#">
-          Github <AiFillGithub />
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/tnmyk/soft-computing-solver"
+        >
+          Contribute on Github <AiFillGithub />
         </a>
       </Menu>
     </StyledNav>
