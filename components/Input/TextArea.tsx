@@ -10,6 +10,7 @@ export const TextArea = styled.textarea<Props>`
   /* box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.06); */
   border-radius: 7px;
   background: #2d3031;
+  color: #ffffff;
   border: 1px solid #525759;
   width: ${(p) => p.width};
 `;
