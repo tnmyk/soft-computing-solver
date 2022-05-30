@@ -16,7 +16,6 @@ import getAlgos from "../lib/getAlgos";
 interface Props {
   algos: Array<{
     name: string;
-    url: string;
     unit: string;
     id: number;
     rank: number;
@@ -68,7 +67,12 @@ const Home: NextPage<Props> = ({ algos }) => {
               {prevUnitInstance !== algo.unit && (
                 <UnitHeading>Unit-{algo.unit}</UnitHeading>
               )}
-              <Link href={`/solve/unit-${algo.unit}/${algo.url}`}>
+              <Link
+                href={`/solve/unit-${algo.unit}/${algo.name
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-")}`}
+              >
                 <StyledLink>
                   {algo.rank}. {algo.name}
                 </StyledLink>
