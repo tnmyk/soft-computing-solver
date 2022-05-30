@@ -20,23 +20,25 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.pathname]);
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta
-          name="description"
-          content={`Soft Computing - ${title} step-by-step online solver`}
-        ></meta>
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:title"
-          content={`Soft Computing - ${title} step-by-step online solver`}
-        />
-        <meta
-          property="og:description"
-          content={`Soft Computing - ${title} step-by-step online solver`}
-        />
-      </Head>
+      {title && (
+        <Head>
+          <title>{title}</title>
+          <meta
+            name="description"
+            content={`Soft Computing - ${title} step-by-step online solver`}
+          ></meta>
+          <meta name="robots" content="index, follow" />
+          <meta property="og:type" content="article" />
+          <meta
+            property="og:title"
+            content={`Soft Computing - ${title} step-by-step online solver`}
+          />
+          <meta
+            property="og:description"
+            content={`Soft Computing - ${title} step-by-step online solver`}
+          />
+        </Head>
+      )}
       <Layout>
         <Component {...pageProps} />
       </Layout>

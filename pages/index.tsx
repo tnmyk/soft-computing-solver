@@ -92,6 +92,12 @@ const Home: NextPage<Props> = ({ algos }) => {
           name="description"
           content={`Soft Computing step-by-step online solver`}
         ></meta>
+        <meta
+          name="keywords"
+          content={`Soft Computing,online,solver,${algos
+            .map((algo) => algo.name)
+            .join(",")}`}
+        ></meta>
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="article" />
         <meta
