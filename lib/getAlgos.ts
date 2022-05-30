@@ -1,34 +1,29 @@
 const algosData = [
   {
-    url: "implement-table-using-perceptron",
     name: "Implement table using Perceptron",
     unit: "1",
     id: 1,
     rank: 1,
   },
   {
-    url: "classify-2d-input-pattern-using-perceptron",
     name: "Classify 2D input-pattern using Perceptron",
     unit: "1",
     id: 2,
     rank: 2,
   },
   {
-    url: "full-cpn",
     name: "Full CPN",
     unit: "3",
     id: 3,
     rank: 3,
   },
   {
-    url: "forward-cpn",
     name: "Forward CPN",
     unit: "3",
     id: 4,
     rank: 4,
   },
   {
-    url: "art",
     name: "Construct ART 1 network for clustering input vectors",
     unit: "3",
     id: 5,

@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -16,7 +17,6 @@ import getAlgos from "../lib/getAlgos";
 interface Props {
   algos: Array<{
     name: string;
-    url: string;
     unit: string;
     id: number;
     rank: number;
@@ -68,7 +68,12 @@ const Home: NextPage<Props> = ({ algos }) => {
               {prevUnitInstance !== algo.unit && (
                 <UnitHeading>Unit-{algo.unit}</UnitHeading>
               )}
-              <Link href={`/solve/unit-${algo.unit}/${algo.url}`}>
+              <Link
+                href={`/solve/unit-${algo.unit}/${algo.name
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-")}`}
+              >
                 <StyledLink>
                   {algo.rank}. {algo.name}
                 </StyledLink>
@@ -81,6 +86,29 @@ const Home: NextPage<Props> = ({ algos }) => {
   };
   return (
     <StyledHome>
+      <Head>
+        <title>Soft Computing step-by-step online solver</title>
+        <meta
+          name="description"
+          content={`Soft Computing step-by-step online solver`}
+        ></meta>
+        <meta
+          name="keywords"
+          content={`Soft Computing,online,solver,${algos
+            .map((algo) => algo.name)
+            .join(",")}`}
+        ></meta>
+        <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content={`Soft Computing - step-by-step online solver`}
+        />
+        <meta
+          property="og:description"
+          content={`Soft Computing - step-by-step online solver`}
+        />
+      </Head>
       <MainHeading>Soft Computing Solver</MainHeading>
       <Description>
         Step-by-step solutions for learning and online exams
