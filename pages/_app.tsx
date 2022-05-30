@@ -22,11 +22,20 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>{title}</title>
-        <meta name="description" content={`${title} online solver`}></meta>
+        <meta
+          name="description"
+          content={`Soft Computing - ${title} online solver`}
+        ></meta>
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${title} online solver`} />
-        <meta property="og:description" content={`${title} online solver`} />
+        <meta
+          property="og:title"
+          content={`Soft Computing - ${title} online solver`}
+        />
+        <meta
+          property="og:description"
+          content={`Soft Computing - ${title} online solver`}
+        />
       </Head>
       <Layout>
         <Component {...pageProps} />
