@@ -34,10 +34,16 @@ const Home: NextPage<Props> = ({ algos }) => {
     if (filtered.length === 0)
       return (
         <>
-          <h4 style={{ margin: "3rem auto 0.5rem auto", width: "max-content" }}>
+          <h4
+            style={{
+              margin: "3rem auto 0.5rem auto",
+              width: "max-content",
+              fontWeight: "500",
+            }}
+          >
             No Algorithm match found.
           </h4>
-          <h4>
+          <h4 style={{ fontWeight: "500" }}>
             Contribute on{" "}
             <a
               target="_blank"
@@ -76,7 +82,9 @@ const Home: NextPage<Props> = ({ algos }) => {
   return (
     <StyledHome>
       <MainHeading>Soft Computing Solver</MainHeading>
-      <Description>Step-by-step solutions for learning and online exams</Description>
+      <Description>
+        Step-by-step solutions for learning and online exams
+      </Description>
       <IconedInputContainer style={{ margin: "1rem 0", marginTop: "2rem" }}>
         <Input
           onChange={(e) => {
