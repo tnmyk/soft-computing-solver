@@ -5,12 +5,19 @@ const Nav = () => {
   return (
     <StyledNav>
       <Link href="/">
-        <Logo>Soft Computing Solver</Logo>
+        <Logo>
+          Soft Computing
+          <img src="/assets/logo.svg" width="50px" alt="" />
+        </Logo>
       </Link>
       <Menu>
         <Link href="/">Home</Link>
-        <a href="#">
-          Github <AiFillGithub />
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/tnmyk/soft-computing-solver"
+        >
+          Contribute on Github <AiFillGithub />
         </a>
       </Menu>
     </StyledNav>

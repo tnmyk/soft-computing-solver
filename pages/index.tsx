@@ -33,7 +33,28 @@ const Home: NextPage<Props> = ({ algos }) => {
 
     if (filtered.length === 0)
       return (
-        <h3 style={{ margin: "4rem auto" }}>No Algorithm found currently</h3>
+        <>
+          <h4
+            style={{
+              margin: "3rem auto 0.5rem auto",
+              width: "max-content",
+              fontWeight: "500",
+            }}
+          >
+            No Algorithm match found.
+          </h4>
+          <h4 style={{ fontWeight: "500" }}>
+            Contribute on{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/tnmyk/soft-computing-solver"
+            >
+              Github
+            </a>
+            💙
+          </h4>
+        </>
       );
 
     return (
@@ -61,16 +82,18 @@ const Home: NextPage<Props> = ({ algos }) => {
   return (
     <StyledHome>
       <MainHeading>Soft Computing Solver</MainHeading>
-      <Description>Solve Soft Computing problems online </Description>
-      <IconedInputContainer style={{ margin: "1rem 0", marginTop: "4rem" }}>
+      <Description>
+        Step-by-step solutions for learning and online exams
+      </Description>
+      <IconedInputContainer style={{ margin: "1rem 0", marginTop: "2rem" }}>
         <Input
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
           type="text"
-          placeholder="Search algorithm"
-          fontSize="1.3rem"
-          width="30rem"
+          placeholder="Search algorithms"
+          fontSize="1.1rem"
+          width="32rem"
         />
         <AiOutlineSearch />
       </IconedInputContainer>

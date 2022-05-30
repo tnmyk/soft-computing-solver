@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import Footer from "./Footer/Footer";
 import Nav from "./Nav/Nav";
 
 interface Layout {
@@ -8,7 +9,8 @@ const Layout: React.FC<Layout> = ({ children }) => {
   return (
     <div>
       <Nav />
-      <main style={{ padding: "2rem 8%" }}>{children}</main>
+      <main style={{ padding: "2rem 8%", minHeight: "75vh" }}>{children}</main>
+      <Footer />
     </div>
   );
 };
