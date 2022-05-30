@@ -37,6 +37,13 @@ function MyApp({ Component, pageProps }: AppProps) {
             property="og:description"
             content={`Soft Computing - ${title} step-by-step online solver`}
           />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-59P6ZD0ZLF"></script>
+          <script dangerouslySetInnerHTML={{__html:`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-59P6ZD0ZLF');
+          `}}/>
         </Head>
       )}
       <Layout>
