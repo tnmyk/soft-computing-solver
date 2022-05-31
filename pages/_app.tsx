@@ -7,7 +7,6 @@ import Layout from "../components/Layout/Layout";
 import "../styles/global.css";
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  console.log(router);
   const [title, setTitle] = useState("");
   useEffect(() => {
     const pathArr = router.pathname
@@ -16,7 +15,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (pathArr[0] !== "solve") return;
     const titleTemp = pathArr[2].split("-").join(" ");
     setTitle(titleTemp.charAt(0).toUpperCase() + titleTemp.slice(1));
-    console.log(pathArr);
   }, [router.pathname]);
   return (
     <>
