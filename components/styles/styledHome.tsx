@@ -18,7 +18,7 @@ export const Description = styled.p`
 `;
 
 export const StyledLink = styled.a`
-  color: #7ed2ff;
+  color: #99dbff;
   font-size: 1.1rem;
   display: inline-flex;
   margin-bottom: 0.6rem;
