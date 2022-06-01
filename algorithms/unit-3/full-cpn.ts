@@ -15,7 +15,8 @@ const solve = (
   const updateWeights = (J: number) => {
     steps += `Weight updation between x-input and cluster-layer,\n v<sub>iJ</sub>(new) = v<sub>iJ</sub>(old) + α[x<sub>i</sub> - v<sub>iJ</sub>(old)]\n\n For i = 1 to ${V.length} and J = ${winningIndex}, we obtain\n\n`;
     for (let i = 0; i < V.length; ++i) {
-      const newVal = V[i][J - 1] + alpha * (X[i] - V[i][J - 1]);
+      const newVal =
+        Math.round((V[i][J - 1] + alpha * (X[i] - V[i][J - 1])) * 1000) / 1000;
       steps += `v<sub>${i + 1}${J}(new)</sub> = v<sub>${
         i + 1
       }${J}(old)</sub> + α[x<sub>${i + 1}</sub> - v<sub>${
@@ -23,7 +24,7 @@ const solve = (
       }${J}(old)</sub>] = ${V[i][J - 1]} + ${alpha}(${X[i]} - ${
         V[i][J - 1]
       }) = ${newVal}\n\n\n`;
-      V[i][J - 1] = Math.round(newVal * 1000) / 1000;
+      V[i][J - 1] = newVal;
     }
 
     steps += `Weight updation between y-input and cluster-layer,\n w<sub>kJ</sub>(new) = w<sub>kJ</sub>(old) + β[y<sub>k</sub> - w<sub>kJ</sub>(old)]\n\n For k = 1 to ${W.length} and J = ${winningIndex}, we obtain,\n\n`;
@@ -44,9 +45,13 @@ const solve = (
     .fill(0)
     .map((_temp, J) => getD(J + 1, V, W, X, Y));
 
-  const winningIndex = arrOfDs.indexOf(Math.min(...arrOfDs)) + 1;
-
-  steps += `Since D${winningIndex} is minimum, therefore,  the winner unit index is J = ${winningIndex}.\n Updating the weights on the winner unit, \n\n`;
+  let winningIndex = 1;
+  if (Math.min(...arrOfDs) === Math.max(...arrOfDs)) {
+    steps += `Since all D are equal, the distances are equal. Hence the unit with the smallest index is chosen as the winner and weights are updated i.e we take J = 1 and update the weights on this winner unit.\n\n`;
+  } else {
+    winningIndex = arrOfDs.indexOf(Math.min(...arrOfDs)) + 1;
+    steps += `Since D${winningIndex} is minimum, therefore,  the winner unit index is J = ${winningIndex}.\n Updating the weights on the winner unit, \n\n`;
+  }
   updateWeights(winningIndex);
 
   steps += `Thus, updated weights are \n\n`;
@@ -74,7 +79,7 @@ const getD = (
     }</sub>)<sup>2</sup> `;
     stepsWithReplacedValues += `+ (${X[i]} - ${V[i][J]})<sup>2</sup> `;
     const toAdd = Math.pow(X[i] - V[i][J], 2);
-    stepsWithValues += `+ ${toAdd} `;
+    stepsWithValues += `+ ${Math.round(toAdd * 1000) / 1000} `;
     sum += toAdd;
   }
   for (let i = 0; i < W.length; ++i) {
@@ -83,9 +88,10 @@ const getD = (
     }</sub>)<sup>2</sup> `;
     stepsWithReplacedValues += `+ (${Y[i]} - ${W[i][J]})<sup>2</sup> `;
     const toAdd = Math.pow(Y[i] - W[i][J], 2);
-    stepsWithValues += `+ ${toAdd} `;
+    stepsWithValues += `+ ${Math.round(toAdd * 1000) / 1000} `;
     sum += toAdd;
   }
+  sum = Math.round(sum * 100) / 100;
   steps +=
     stepsWithVariables +
     "\n= " +
