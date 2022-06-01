@@ -196,6 +196,19 @@ const SolvePage = () => {
       {steps && (
         <div>
           <Steps>
+            <div>
+              Now we calculate the square of the Euclidean distance using the
+              formula:
+              <br />
+              <br />
+              D(j) = &sum;<sub>i=1</sub>
+              <sup>{numberOfX}</sup> (x<sub>i</sub> - v<sub>ij</sub>)
+              <sup>2</sup> + &sum;<sub>k=1</sub>
+              <sup>{numberOfY}</sup> (y<sub>k</sub> - w<sub>kj</sub>)
+              <sup>2</sup>
+            </div>
+            <br />
+            <br />
             <div dangerouslySetInnerHTML={{ __html: steps }} />
           </Steps>
           V =
