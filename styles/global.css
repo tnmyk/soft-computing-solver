@@ -5,13 +5,16 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
+html {
+  --white: #f2f2f2;
+}
 
 body {
   /* background-color: #27292a; */
   background-color: #0d1117;
-  color: #f2f2f2;
+  color: var(--white);
 }
 
 a {
-  color: #f2f2f2;
+  color: var(--white);
 }
