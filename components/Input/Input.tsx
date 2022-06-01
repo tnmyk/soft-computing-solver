@@ -7,12 +7,17 @@ export const Input = styled.input<Props>`
   font-size: ${(p) => (p.fontSize ? p.fontSize : "1rem")};
   padding: 15px;
   border: none;
-  /* box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.06); */
   border-radius: 7px;
-  background: #2d3031;
+  background: #161b22;
   border: 1px solid #525759;
-  color: #ffffff;
+  color: #c9d1d9;
+  ::placeholder {
+    color: #6e7681;
+  }
   width: ${(p) => p.width};
+
+  // Change
+  outline: 1px;
 `;
 
 export const IconedInputContainer = styled.div`
