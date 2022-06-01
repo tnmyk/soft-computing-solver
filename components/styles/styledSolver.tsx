@@ -32,8 +32,8 @@ export const Matrix = styled.div`
   padding: 0.5rem;
   flex-direction: column;
   row-gap: 1rem;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 1px solid var(--white);
+  border-right: 1px solid var(--white);
   div {
     display: flex;
     column-gap: 1rem;
