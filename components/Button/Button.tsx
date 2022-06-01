@@ -26,9 +26,10 @@ export const Button = styled.button<ButtonProps>`
   padding: 0.6rem 0.9rem;
   border: none;
   border: 1px solid gray;
-  background-color: #27292a;
+  background: #161b22;
+
   border: 1px solid #525759;
-  color: #ffffff;
+  color: var(--white);
   border-radius: 6px;
   display: flex;
   align-items: center;
