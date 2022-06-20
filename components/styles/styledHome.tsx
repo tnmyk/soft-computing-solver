@@ -10,11 +10,13 @@ export const StyledHome = styled.div`
 
 export const MainHeading = styled.h1`
   font-size: 3.8rem;
+  text-align: center;
 `;
 
 export const Description = styled.p`
   font-size: 1.2rem;
   margin-top: 0.5rem;
+  text-align: center;
 `;
 
 export const StyledLink = styled.a`
