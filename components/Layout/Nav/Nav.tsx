@@ -4,7 +4,7 @@ import { AiFillGithub } from "react-icons/ai";
 const Nav = () => {
   return (
     <StyledNav>
-      <Link href="/">
+      <Link href="/" passHref>
         <Logo>
           Soft Computing
           <img src="/assets/logo.svg" width="50px" alt="" />

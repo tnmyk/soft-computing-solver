@@ -73,6 +73,7 @@ const Home: NextPage<Props> = ({ algos }) => {
                   .toLowerCase()
                   .split(" ")
                   .join("-")}`}
+                passHref
               >
                 <StyledLink>
                   {algo.rank}. {algo.name}

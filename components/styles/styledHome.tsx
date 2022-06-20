@@ -23,6 +23,7 @@ export const StyledLink = styled.a`
   display: inline-flex;
   margin-bottom: 0.6rem;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 export const AlgosContainer = styled.div`
