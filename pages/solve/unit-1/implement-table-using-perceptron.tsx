@@ -91,7 +91,7 @@ const SolvePage = () => {
         );
       })}
       <Button onClick={handleSubmit}>Submit</Button>
-      <Table>
+      {ans && <Table>
         <tbody>
           <tr>
             <th>x1</th>
@@ -107,8 +107,7 @@ const SolvePage = () => {
             <th>w2</th>
             <th>b</th>
           </tr>
-          {ans &&
-            ans.map((row: number[], idx: number) => {
+          {ans.map((row: number[], idx: number) => {
               return (
                 <Fragment key={idx}>
                   {idx % Math.pow(2, numberOfInputs) === 0 && (
@@ -126,7 +125,7 @@ const SolvePage = () => {
               );
             })}
         </tbody>
-      </Table>
+      </Table>}
     </StyledSolver>
   );
 };
