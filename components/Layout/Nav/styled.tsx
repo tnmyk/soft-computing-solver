@@ -35,4 +35,9 @@ export const Menu = styled.div`
   a svg {
     font-size: 1.3rem;
   }
+  @media only screen and (max-width: 500px){
+    a:first-child{
+      display: none;
+    }
+  }
 `;

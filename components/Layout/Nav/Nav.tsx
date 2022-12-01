@@ -17,7 +17,7 @@ const Nav = () => {
           rel="noreferrer"
           href="https://github.com/tnmyk/soft-computing-solver"
         >
-          Contribute on Github <AiFillGithub />
+          Github <AiFillGithub />
         </a>
       </Menu>
     </StyledNav>
