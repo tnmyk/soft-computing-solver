@@ -22,8 +22,10 @@ export const Input = styled.input<Props>`
 
 export const IconedInputContainer = styled.div`
   position: relative;
+  width: 32rem;
   input {
     padding-left: 3rem;
+    width: 100%;
   }
   svg {
     position: absolute;
@@ -33,4 +35,12 @@ export const IconedInputContainer = styled.div`
     top: 50%;
     transform: translateY(-50%);
   }
+
+  @media only screen and (max-width: 1000px){
+    width:80%;
+  };
+
+  @media only screen and (max-width: 500px){
+    width:95%;
+  };
 `;

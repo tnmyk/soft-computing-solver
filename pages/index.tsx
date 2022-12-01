@@ -122,7 +122,7 @@ const Home: NextPage<Props> = ({ algos }) => {
           type="text"
           placeholder="Search algorithms"
           fontSize="1.1rem"
-          width="32rem"
+          // width="32rem"
         />
         <AiOutlineSearch />
       </IconedInputContainer>
