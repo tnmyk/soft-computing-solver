@@ -8,6 +8,7 @@ export const StyledSolver = styled.div`
   min-height: 85vh;
   h1 {
     margin-bottom: 1rem;
+    text-align: center;
   }
 `;
 

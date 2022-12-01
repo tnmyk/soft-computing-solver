@@ -33,7 +33,7 @@ const SolverPage = () => {
   };
   return (
     <StyledSolver>
-      <h1>Forward CPN Solver</h1>
+      <h1>Construct art 1 network for clustering input vectors</h1>
       <Input
         placeholder="Number of inputs"
         type="number"
