@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Script from "next/script";
 import path from "path";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout/Layout";
@@ -39,21 +40,15 @@ function MyApp({ Component, pageProps }: AppProps) {
             )
           </>
         )}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-59P6ZD0ZLF"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-59P6ZD0ZLF');
-          `,
-          }}
-        />
       </Head>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBMJCWC0ZN"></script>
+      <Script>
+      {`window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HBMJCWC0ZN');`}
+      </Script>
       <Layout>
         <Component {...pageProps} />
       </Layout>
